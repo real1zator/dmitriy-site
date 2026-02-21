@@ -9,165 +9,106 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
     :root {
-      --bg: #0f172a;
-      --bg-light: #1e293b;
-      --text: #e2e8f0;
-      --text-light: #94a3b8;
-      --orange: #ff6b35;
-      --orange-dark: #f45217;
-      --teal: #14b8a6;
-      --border: rgba(148,163,184,0.15);
-      --shadow: 0 10px 40px rgba(0,0,0,0.4);
+      --bg: #f4f7fa;
+      --bg-white: #ffffff;
+      --text: #1a2332;
+      --text-light: #6b7280;
+      --blue: #1e3a8a;
+      --blue-light: #3b82f6;
+      --blue-dark: #1e40af;
+      --orange: #f59e0b;
+      --border: #e5e7eb;
+      --shadow: 0 2px 16px rgba(30,58,138,0.08);
+      --shadow-lg: 0 4px 24px rgba(30,58,138,0.12);
       --font: 'Inter', 'Segoe UI', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
 
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
     /* === HEADER === */
     .header {
-      position: fixed;
+      background: var(--blue);
+      color: #fff;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 100;
-      background: rgba(15,23,42,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
     }
     .header__inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 70px;
+      height: 72px;
     }
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-    }
-    .logo__icon {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 26px;
+      font-weight: 900;
       color: #fff;
-      font-size: 22px;
-      font-weight: 900;
-    }
-    .logo__text {
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--text);
-      letter-spacing: -0.5px;
+      text-decoration: none;
+      letter-spacing: -0.01em;
     }
     .nav {
       display: flex;
-      gap: 32px;
+      gap: 36px;
     }
     .nav a {
       font-size: 14px;
       font-weight: 600;
-      color: var(--text-light);
+      color: rgba(255,255,255,0.9);
       text-decoration: none;
       transition: color 0.3s;
     }
     .nav a:hover { color: var(--orange); }
     .header__cta {
-      padding: 12px 26px;
+      padding: 10px 24px;
+      border-radius: 6px;
       background: var(--orange);
-      color: #fff;
-      font-size: 13px;
+      color: var(--blue);
+      font-size: 14px;
       font-weight: 700;
-      border-radius: 8px;
       text-decoration: none;
       transition: all 0.3s;
     }
     .header__cta:hover {
-      background: var(--orange-dark);
-      transform: translateY(-1px);
+      background: #d97706;
+      transform: translateY(-2px);
     }
 
     /* === HERO === */
     .hero {
-      padding: 130px 0 100px;
-      background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, transparent 60%),
+      position: relative;
+      background: linear-gradient(135deg, rgba(30,58,138,0.92) 0%, rgba(30,64,175,0.88) 100%),
                   url('photo_1.jpg') center/cover no-repeat;
-      position: relative;
-      overflow: hidden;
+      padding: 100px 0 90px;
+      color: #fff;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
-      border-radius: 50%;
+    .hero__content {
+      max-width: 720px;
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -150px;
-      left: -150px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .hero__grid {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr 500px;
-      gap: 60px;
-      align-items: center;
-    }
-    .hero__content h1 {
-      font-size: clamp(42px, 5.5vw, 64px);
+    .hero__title {
+      font-size: clamp(34px, 5vw, 56px);
       font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
     }
-    .hero__content h1 span {
-      color: var(--orange);
-    }
-    .hero__content p {
+    .hero__subtitle {
       font-size: 17px;
-      color: var(--text-light);
-      margin-bottom: 32px;
       line-height: 1.7;
-    }
-    .hero__mockup {
-      position: relative;
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 8px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    }
-    .hero__mockup img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 6px;
+      margin-bottom: 32px;
+      opacity: 0.95;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 16px 32px;
+      padding: 16px 36px;
       border-radius: 8px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       text-decoration: none;
       transition: all 0.3s;
@@ -176,347 +117,419 @@
     }
     .btn--orange {
       background: var(--orange);
-      color: #fff;
+      color: var(--blue);
+      box-shadow: 0 6px 20px rgba(245,158,11,0.3);
     }
     .btn--orange:hover {
-      background: var(--orange-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255,107,53,0.3);
-    }
-    .btn--outline {
-      background: transparent;
-      color: var(--text);
-      border: 2px solid var(--border);
-    }
-    .btn--outline:hover {
-      border-color: var(--orange);
-      color: var(--orange);
+      background: #d97706;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(245,158,11,0.4);
     }
 
-    /* === CHALLENGE === */
-    .challenge {
+    /* === INTRO === */
+    .intro {
       padding: 90px 0;
-      background: var(--bg-light);
+      background: var(--bg-white);
     }
-    .challenge__grid {
+    .intro__grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: 60px;
+      align-items: center;
     }
-    .challenge__block h2 {
-      font-size: clamp(28px, 3.5vw, 40px);
+    .intro__image {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+    }
+    .intro__title {
+      font-size: clamp(26px, 3.5vw, 42px);
       font-weight: 900;
-      margin-bottom: 24px;
-      letter-spacing: -0.8px;
-    }
-    .challenge__block h2 span {
-      color: var(--orange);
-    }
-    .challenge__block p {
-      font-size: 15px;
-      color: var(--text-light);
-      line-height: 1.8;
+      line-height: 1.2;
       margin-bottom: 20px;
+      color: var(--blue);
+      letter-spacing: -0.02em;
     }
-    .challenge__block ul {
-      list-style: none;
-      margin-bottom: 32px;
-    }
-    .challenge__block ul li {
-      font-size: 14px;
+    .intro__text {
+      font-size: 16px;
       color: var(--text-light);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      padding-left: 28px;
+      margin-bottom: 24px;
+      line-height: 1.8;
     }
-    .challenge__block ul li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--orange);
+    .intro__list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .intro__list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .intro__list li::before {
+      content: '✓';
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(59,130,246,0.15);
+      color: var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
       font-weight: 700;
+      font-size: 14px;
     }
 
-    /* === SOLUTION === */
-    .solution {
+    /* === FEATURES === */
+    .features {
       padding: 90px 0;
-      background: var(--bg);
+      background: linear-gradient(180deg, rgba(59,130,246,0.03) 0%, transparent 100%);
     }
-    .solution__title {
+    .s-title {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 56px;
     }
-    .solution__title h2 {
-      font-size: clamp(32px, 4.5vw, 48px);
+    .s-title__heading {
+      font-size: clamp(28px, 3.5vw, 44px);
       font-weight: 900;
+      line-height: 1.2;
       margin-bottom: 16px;
-      letter-spacing: -1px;
+      color: var(--blue);
+      letter-spacing: -0.02em;
     }
-    .solution__title h2 span {
-      color: var(--orange);
-    }
-    .solution__title p {
+    .s-title__sub {
       font-size: 16px;
       color: var(--text-light);
     }
-    .solution__grid {
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .feature-card {
+      background: var(--bg-white);
+      padding: 36px 28px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--blue-light);
+      box-shadow: var(--shadow-lg);
+    }
+    .feature-card__icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 20px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(30,58,138,0.08));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+    .feature-card__title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--blue);
+    }
+    .feature-card__desc {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* === ADVANTAGES === */
+    .advantages {
+      padding: 90px 0;
+      background: var(--bg-white);
+    }
+    .advantages-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 32px;
     }
-    .solution-card {
-      background: var(--bg-light);
-      border: 1px solid var(--border);
+    .advantage-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 32px 28px;
+      background: var(--bg);
       border-radius: 12px;
-      padding: 36px;
       transition: all 0.3s;
+      border-left: 4px solid transparent;
     }
-    .solution-card:hover {
-      border-color: var(--orange);
-      transform: translateY(-4px);
+    .advantage-card:hover {
+      transform: translateX(8px);
+      border-left-color: var(--blue-light);
       box-shadow: var(--shadow);
     }
-    .solution-card__icon {
+    .advantage-card__icon {
       width: 56px;
       height: 56px;
-      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
-      border-radius: 10px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue-light), var(--blue));
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 26px;
-      margin-bottom: 20px;
+      flex-shrink: 0;
     }
-    .solution-card h3 {
+    .advantage-card__title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--blue);
+    }
+    .advantage-card__desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* === SERVICES === */
+    .services {
+      padding: 90px 0;
+      background: var(--blue);
+      color: #fff;
+    }
+    .services .s-title__heading,
+    .services .s-title__sub {
+      color: #fff;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      padding: 32px 28px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+    }
+    .service-card__icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      background: rgba(245,158,11,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+    .service-card__title {
       font-size: 19px;
       font-weight: 700;
       margin-bottom: 12px;
-      color: var(--text);
     }
-    .solution-card p {
-      font-size: 13px;
-      color: var(--text-light);
-      line-height: 1.8;
+    .service-card__desc {
+      font-size: 14px;
+      opacity: 0.9;
+      line-height: 1.7;
     }
 
-    /* === PROTOTYPE === */
-    .prototype {
+    /* === STATS === */
+    .stats {
       padding: 90px 0;
-      background: var(--bg-light);
+      background: linear-gradient(180deg, transparent 0%, rgba(59,130,246,0.03) 100%);
     }
-    .prototype__header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    .prototype__header h2 {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 900;
-      margin-bottom: 18px;
-      letter-spacing: -1px;
-      text-transform: uppercase;
-      color: var(--orange);
-    }
-    .prototype__header p {
-      font-size: 16px;
-      color: var(--text-light);
-    }
-    .prototype__grid {
+    .stats-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
     }
-    .prototype__item {
+    .stat-item {
+      background: var(--bg-white);
+      padding: 40px 28px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      border-top: 4px solid transparent;
+    }
+    .stat-item:hover {
+      transform: translateY(-6px);
+      border-top-color: var(--orange);
+    }
+    .stat-item__num {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .stat-item__label {
+      font-size: 14px;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* === PORTFOLIO === */
+    .portfolio {
+      padding: 90px 0;
+      background: var(--bg-white);
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .portfolio-item {
       position: relative;
       border-radius: 12px;
       overflow: hidden;
-      border: 2px solid var(--border);
-      transition: all 0.3s;
       cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
     }
-    .prototype__item:hover {
-      border-color: var(--orange);
-      transform: scale(1.02);
+    .portfolio-item:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-lg);
     }
-    .prototype__item img {
+    .portfolio-item img {
       width: 100%;
-      height: 300px;
+      height: 280px;
       object-fit: cover;
       display: block;
     }
-    .prototype__label {
+    .portfolio-item__overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(to top, rgba(15,23,42,0.95), transparent);
-      padding: 32px 24px 24px;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(30,58,138,0.95), transparent);
       color: #fff;
     }
-    .prototype__label h3 {
-      font-size: 18px;
+    .portfolio-item__title {
+      font-size: 17px;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
-    .prototype__label p {
+    .portfolio-item__desc {
       font-size: 13px;
-      color: rgba(255,255,255,0.7);
+      opacity: 0.9;
     }
 
-    /* === PROCESS === */
-    .process {
+    /* === FAQ === */
+    .faq {
       padding: 90px 0;
       background: var(--bg);
     }
-    .process__header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    .process__header h2 {
-      font-size: clamp(32px, 4.5vw, 48px);
-      font-weight: 900;
-      margin-bottom: 16px;
-      letter-spacing: -1px;
-    }
-    .process__header h2 span {
-      color: var(--orange);
-    }
-    .process__header p {
-      font-size: 16px;
-      color: var(--text-light);
-    }
-    .process-list {
+    .faq-list {
       max-width: 900px;
       margin: 0 auto;
     }
-    .process-item {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 30px;
-      margin-bottom: 50px;
-      padding-bottom: 50px;
-      border-bottom: 1px solid var(--border);
+    .faq-item {
+      background: var(--bg-white);
+      border-radius: 10px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border-left: 4px solid transparent;
+      transition: border-color 0.3s;
     }
-    .process-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
+    .faq-item:hover {
+      border-left-color: var(--blue-light);
     }
-    .process-item__number {
-      font-size: 48px;
-      font-weight: 900;
-      color: var(--orange);
-      line-height: 1;
-    }
-    .process-item__content h3 {
-      font-size: 22px;
+    .faq-item__q {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 28px;
+      background: none;
+      border: none;
+      font: inherit;
+      font-size: 16px;
       font-weight: 700;
-      margin-bottom: 12px;
       color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.3s;
     }
-    .process-item__content p {
+    .faq-item__q:hover { background: rgba(59,130,246,0.03); }
+    .faq-item__q .icon {
+      font-size: 22px;
+      transition: transform 0.3s;
+      color: var(--blue-light);
+    }
+    .faq-item__q.open .icon { transform: rotate(45deg); }
+    .faq-item__a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
       font-size: 14px;
       color: var(--text-light);
       line-height: 1.8;
+      padding: 0 28px;
     }
-
-    /* === CTA === */
-    .cta {
-      padding: 90px 0;
-      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
-      position: relative;
-      overflow: hidden;
-    }
-    .cta::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .cta__content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .cta h2 {
-      font-size: clamp(36px, 5vw, 52px);
-      font-weight: 900;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      color: #fff;
-      letter-spacing: -1px;
-    }
-    .cta p {
-      font-size: 17px;
-      margin-bottom: 32px;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.7;
-    }
-    .cta .btn {
-      background: #fff;
-      color: var(--orange);
-    }
-    .cta .btn:hover {
-      background: rgba(255,255,255,0.95);
-      transform: translateY(-2px);
+    .faq-item__a.open {
+      max-height: 300px;
+      padding: 0 28px 20px;
     }
 
     /* === CONTACT FORM === */
     .contact-form {
-      padding: 90px 0;
-      background: var(--bg-light);
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      color: #fff;
+    }
+    .contact-form .s-title__heading,
+    .contact-form .s-title__sub {
+      color: #fff;
     }
     .form-wrapper {
       max-width: 700px;
       margin: 0 auto;
-      background: var(--bg);
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      padding: 50px;
-      box-shadow: var(--shadow);
-    }
-    .form-wrapper h2 {
-      font-size: 32px;
-      font-weight: 900;
-      margin-bottom: 10px;
-      text-align: center;
-      letter-spacing: -0.8px;
-    }
-    .form-wrapper p {
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-light);
-      margin-bottom: 32px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 48px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
     }
     .form-wrapper input,
     .form-wrapper textarea {
       width: 100%;
       padding: 16px 20px;
-      border: 2px solid var(--border);
-      border-radius: 8px;
-      background: var(--bg-light);
-      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      color: #fff;
       font: inherit;
-      font-size: 14px;
-      margin-bottom: 20px;
+      font-size: 15px;
+      margin-bottom: 16px;
       transition: all 0.3s;
     }
     .form-wrapper input::placeholder,
     .form-wrapper textarea::placeholder {
-      color: var(--text-light);
-      opacity: 0.7;
+      color: rgba(255,255,255,0.6);
     }
     .form-wrapper input:focus,
     .form-wrapper textarea:focus {
       outline: none;
       border-color: var(--orange);
-      box-shadow: 0 0 0 3px rgba(255,107,53,0.15);
+      background: rgba(255,255,255,0.1);
     }
     .form-wrapper textarea {
       resize: vertical;
@@ -529,62 +542,31 @@
 
     /* === FOOTER === */
     .footer {
-      background: var(--bg);
-      color: var(--text-light);
-      padding: 60px 0 30px;
-      border-top: 1px solid var(--border);
+      background: #0f1621;
+      color: rgba(255,255,255,0.7);
+      padding: 50px 0;
     }
-    .footer__grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 50px;
-      margin-bottom: 40px;
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .footer__logo {
       font-size: 24px;
       font-weight: 900;
-      color: var(--text);
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
+      color: #fff;
     }
-    .footer__desc {
+    .footer__copy {
       font-size: 13px;
-      line-height: 1.8;
-    }
-    .footer__title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 18px;
-    }
-    .footer__links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer__links a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-size: 13px;
-      transition: color 0.3s;
-    }
-    .footer__links a:hover {
-      color: var(--orange);
-    }
-    .footer__bottom {
-      padding-top: 30px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      font-size: 12px;
     }
 
     /* === FLOATING / MOBILE === */
     .sticky-call,
     .sticky-tg {
       position: fixed;
-      right: 22px;
-      width: 56px;
-      height: 56px;
+      right: 24px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -594,19 +576,19 @@
       font-size: 24px;
       z-index: 60;
       transition: transform 0.3s;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     }
     .sticky-call {
-      bottom: 90px;
-      background: linear-gradient(135deg, #10b981, #059669);
+      bottom: 98px;
+      background: linear-gradient(135deg, #4ade80, #22c55e);
     }
     .sticky-tg {
-      bottom: 26px;
-      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      bottom: 30px;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
     }
     .sticky-call:hover,
     .sticky-tg:hover {
-      transform: scale(1.1);
+      transform: scale(1.12);
     }
 
     .mobile-cta {
@@ -617,31 +599,34 @@
       z-index: 80;
       display: none;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
-      background: rgba(15,23,42,0.98);
-      backdrop-filter: blur(10px);
+      gap: 12px;
+      padding: 14px;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(12px);
       border-top: 2px solid var(--border);
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
     }
     .mobile-cta a {
       text-align: center;
       text-decoration: none;
       font-weight: 700;
-      padding: 16px;
+      border-radius: 8px;
+      padding: 15px;
       font-size: 14px;
     }
     .mobile-cta__call {
       color: #fff;
-      background: #10b981;
+      background: #22c55e;
     }
     .mobile-cta__lead {
-      color: #fff;
+      color: var(--blue);
       background: var(--orange);
     }
 
     /* === ANIMATIONS === */
     [data-animate] {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(28px);
       transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
     }
     [data-animate].animated {
@@ -651,28 +636,30 @@
 
     /* === RESPONSIVE === */
     @media (max-width: 1024px) {
-      .hero__grid {
+      .intro__grid {
         grid-template-columns: 1fr;
       }
-      .challenge__grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-      }
-      .solution__grid {
+      .features-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .prototype__grid {
-        grid-template-columns: 1fr;
+      .advantages-grid,
+      .services-grid,
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .footer__grid {
-        grid-template-columns: 1fr 1fr;
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
     @media (max-width: 700px) {
       .nav {
         display: none;
       }
-      .solution__grid {
+      .features-grid,
+      .advantages-grid,
+      .services-grid,
+      .stats-grid,
+      .portfolio-grid {
         grid-template-columns: 1fr;
       }
       .sticky-call,
@@ -683,23 +670,18 @@
         display: grid;
       }
       body {
-        padding-bottom: 70px;
+        padding-bottom: 88px;
       }
       .hero {
-        padding: 110px 0 80px;
+        padding: 80px 0 70px;
       }
       .form-wrapper {
-        padding: 36px 28px;
+        padding: 36px 24px;
       }
-      .footer__grid {
-        grid-template-columns: 1fr;
-      }
-      .process-item {
-        grid-template-columns: 60px 1fr;
+      .footer__inner {
+        flex-direction: column;
         gap: 20px;
-      }
-      .process-item__number {
-        font-size: 36px;
+        text-align: center;
       }
     }
   </style>
@@ -1253,17 +1235,14 @@
 <!-- HEADER -->
 <header class="header">
   <div class="container header__inner">
-    <a href="#top" class="logo">
-      <div class="logo__icon">AZ</div>
-      <div class="logo__text">Дмитрий</div>
-    </a>
+    <a href="#top" class="logo">Дмитрий</a>
     <nav class="nav">
-      <a href="#challenge">Задачи</a>
-      <a href="#solution">Решение</a>
-      <a href="#process">Процесс</a>
-      <a href="#contacts">Контакты</a>
+      <a href="#about">О компании</a>
+      <a href="#services">Услуги</a>
+      <a href="#portfolio">Проекты</a>
+      <a href="#faq">Вопросы</a>
     </nav>
-    <a href="#contacts" class="header__cta">Оставить заявку</a>
+    <a href="#contacts" class="header__cta">Заказать</a>
   </div>
 </header>
 
@@ -1282,197 +1261,264 @@
 
 
   <div class="container">
-    <div class="hero__grid">
-      <div class="hero__content" data-animate>
-        <h1>Разработаем <span>логистическое решение</span> для вашего бизнеса</h1>
-        <p>Проанализируем потоки, автоматизируем процессы, внедрим современную систему управления доставками. От проектирования до запуска.</p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="#contacts" class="btn btn--orange">Оставить заявку →</a>
-          <a href="#challenge" class="btn btn--outline">Подробнее</a>
-        </div>
+    <div class="hero__content" data-animate>
+      <h1 class="hero__title">ГРУЗОПЕРЕВОЗКИ<br>В КАЛИНИНГРАД</h1>
+      <p class="hero__subtitle">Профессиональные грузоперевозки по городу и России. Перевозим мебель, технику, стройматериалы. Аккуратная погрузка, страховка, GPS-контроль. Работаем 24/7 без выходных.</p>
+      <a href="#contacts" class="btn btn--orange">Рассчитать стоимость</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="about">
+  <div class="container intro__grid">
+    <img src="photo_1.jpg" alt="О компании" class="intro__image" data-animate>
+    <div data-animate>
+      <h2 class="intro__title">Что мы предлагаем</h2>
+      <p class="intro__text">Дмитрий — состоявшая компания, которая работает в сфере грузоперевозок более 10 лет. Мы предлагаем полный спектр транспортных услуг для частных лиц и бизнеса.</p>
+      <ul class="intro__list">
+        <li>Современный автопарк различной грузоподъёмности</li>
+        <li>Опытные водители и грузчики</li>
+        <li>Работаем 24/7 без выходных</li>
+        <li>Страхование грузов</li>
+        <li>Прозрачное ценообразование</li>
+      </ul>
+      <a href="#contacts" class="btn btn--orange">Связаться с нами</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <div class="s-title" data-animate>
+      <h2 class="s-title__heading">Почему выбирают нас</h2>
+      <p class="s-title__sub">Преимущества работы с нашей компанией</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card" data-animate>
+        <div class="feature-card__icon">🚚</div>
+        <div class="feature-card__title">Грузоперевозки по городу</div>
+        <div class="feature-card__desc">Перевозка мебели, стройматериалов и техники. Аккуратная погрузка, фиксированные цены.</div>
       </div>
-      <div class="hero__mockup" data-animate>
-        <img src="photo_2.jpg" alt="Платформа логистики">
+      <div class="feature-card" data-animate>
+        <div class="feature-card__icon">⏰</div>
+        <div class="feature-card__title">Междугородние перевозки</div>
+        <div class="feature-card__desc">Надёжная доставка грузов по всей России. GPS-мониторинг, страхование, точные сроки.</div>
+      </div>
+      <div class="feature-card" data-animate>
+        <div class="feature-card__icon">💰</div>
+        <div class="feature-card__title">Квартирный переезд</div>
+        <div class="feature-card__desc">Переезд под ключ: упаковка, погрузка, транспортировка, сборка мебели на новом месте.</div>
+      </div>
+      <div class="feature-card" data-animate>
+        <div class="feature-card__icon">🛡️</div>
+        <div class="feature-card__title">Услуги грузчиков</div>
+        <div class="feature-card__desc">Опытные грузчики для погрузки и разгрузки. Бережное обращение с вещами.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CHALLENGE -->
-<section class="challenge" id="challenge">
+<!-- ADVANTAGES -->
+<section class="advantages">
   <div class="container">
-    <div class="challenge__grid">
-      <div class="challenge__block" data-animate>
-        <h2><span>Задача:</span><br>Организовать логистику</h2>
-        <p>Ваш бизнес растёт, клиентов становится больше, но процессы доставки и складского учёта остаются chaos: задержки, ошибки, потери.</p>
-        <p>Вы понимаете, что нужна современная система, которая:</p>
-        <ul>
-          <li>Автоматизирует диспетчирование и распределение грузов</li>
-          <li>Отслеживает транспорт в реальном времени</li>
-          <li>Снизит издержки на 30-40%</li>
-          <li>Ускорит обработку заявок и доставку</li>
-          <li>Интегрируется с складом и CRM</li>
-        </ul>
-      </div>
-      <div class="challenge__block" data-animate>
-        <h2><span>95%</span> компаний<br>теряют прибыль</h2>
-        <p>В результатах неэффективной логистики:</p>
-        <ul>
-          <li>Простои транспорта – до 20% времени</li>
-          <li>Ошибки маршрутизации – +25% расходов на топливо</li>
-          <li>Ручной учёт – задержки до 2 дней</li>
-          <li>Отсутствие аналитики – нет точек роста</li>
-          <li>Недовольство клиентов – потеря лояльности</li>
-        </ul>
-        <p>Мы помогаем избежать всех этих проблем.</p>
-      </div>
+    <div class="s-title" data-animate>
+      <h2 class="s-title__heading">Наши преимущества</h2>
     </div>
-  </div>
-</section>
-
-<!-- SOLUTION -->
-<section class="solution" id="solution">
-  <div class="container">
-    <div class="solution__title" data-animate>
-      <h2><span>Решение:</span> Логистическая платформа под ключ</h2>
-      <p>Проектируем, внедряем, обучаем</p>
-    </div>
-    <div class="solution__grid">
-      <div class="solution-card" data-animate>
-        <div class="solution-card__icon">📊</div>
-        <h3>Анализ процессов</h3>
-        <p>Изучаем текущие потоки, находим узкие места, формируем техническое задание на автоматизацию.</p>
-      </div>
-      <div class="solution-card" data-animate>
-        <div class="solution-card__icon">🎨</div>
-        <h3>Дизайн системы</h3>
-        <p>Разрабатываем интерфейс диспетчерской, водителя, клиента. Удобный, понятный, быстрый.</p>
-      </div>
-      <div class="solution-card" data-animate>
-        <div class="solution-card__icon">⚙️</div>
-        <h3>Разработка платформы</h3>
-        <p>Создание веб и мобильных приложений. GPS-мониторинг, автодиспетчеризация, интеграции.</p>
-      </div>
-      <div class="solution-card" data-animate>
-        <div class="solution-card__icon">🔗</div>
-        <h3>Интеграции</h3>
-        <p>Подключаем CRM, склад, бухгалтерию, телематику. Все данные синхронизируются автоматически.</p>
-      </div>
-      <div class="solution-card" data-animate>
-        <div class="solution-card__icon">📈</div>
-        <h3>Аналитика и отчёты</h3>
-        <p>Дашборды, KPI водителей, анализ маршрутов. Вы видите реальную картину логистики в режиме реального времени.</p>
-      </div>
-      <div class="solution-card" data-animate>
-        <div class="solution-card__icon">🎓</div>
-        <h3>Обучение команды</h3>
-        <p>Проводим обучение для диспетчеров, водителей, администраторов. Полная документация и поддержка.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROTOTYPE -->
-<section class="prototype">
-  <div class="container">
-    <div class="prototype__header" data-animate>
-      <h2>Прототип</h2>
-      <p>Примеры интерфейсов логистической платформы</p>
-    </div>
-    <div class="prototype__grid">
-      <div class="prototype__item" data-animate>
-        <img src="photo_3.jpg" alt="Панель диспетчера">
-        <div class="prototype__label">
-          <h3>Панель диспетчера</h3>
-          <p>Управление заказами и транспортом</p>
+    <div class="advantages-grid">
+      <div class="advantage-card" data-animate>
+        <div class="advantage-card__icon">📦</div>
+        <div>
+          <div class="advantage-card__title">Бережная перевозка</div>
+          <div class="advantage-card__desc">Профессиональная упаковка и крепление грузов. Сохранность гарантируем.</div>
         </div>
       </div>
-      <div class="prototype__item" data-animate>
-        <img src="photo_4.jpg" alt="Мобильное приложение">
-        <div class="prototype__label">
-          <h3>Мобильное приложение</h3>
-          <p>Для водителей и курьеров</p>
+      <div class="advantage-card" data-animate>
+        <div class="advantage-card__icon">🎯</div>
+        <div>
+          <div class="advantage-card__title">Точность в сроках</div>
+          <div class="advantage-card__desc">Доставляем строго в оговоренное время. Придерживаемся графика.</div>
         </div>
       </div>
-      <div class="prototype__item" data-animate>
-        <img src="photo_5.jpg" alt="Отслеживание грузов">
-        <div class="prototype__label">
-          <h3>Отслеживание в реальном времени</h3>
-          <p>GPS-мониторинг всех транспортных средств</p>
+      <div class="advantage-card" data-animate>
+        <div class="advantage-card__icon">👨‍💼</div>
+        <div>
+          <div class="advantage-card__title">Опытная команда</div>
+          <div class="advantage-card__desc">Водители и грузчики с опытом работы от 5 лет.</div>
         </div>
       </div>
-      <div class="prototype__item" data-animate>
-        <img src="photo_6.jpg" alt="Аналитика">
-        <div class="prototype__label">
-          <h3>Аналитика и отчёты</h3>
-          <p>KPI, маршруты, эффективность</p>
+      <div class="advantage-card" data-animate>
+        <div class="advantage-card__icon">📋</div>
+        <div>
+          <div class="advantage-card__title">Полный пакет документов</div>
+          <div class="advantage-card__desc">Договор, акты, страховка — всё оформляется официально.</div>
+        </div>
+      </div>
+      <div class="advantage-card" data-animate>
+        <div class="advantage-card__icon">🔧</div>
+        <div>
+          <div class="advantage-card__title">Техника в идеале</div>
+          <div class="advantage-card__desc">Регулярное ТО и проверка перед каждым рейсом.</div>
+        </div>
+      </div>
+      <div class="advantage-card" data-animate>
+        <div class="advantage-card__icon">💬</div>
+        <div>
+          <div class="advantage-card__title">Поддержка 24/7</div>
+          <div class="advantage-card__desc">Всегда на связи. Ответим на любые вопросы.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="process" id="process">
+<!-- SERVICES -->
+<section class="services" id="services">
   <div class="container">
-    <div class="process__header" data-animate>
-      <h2>Процесс <span>разработки</span></h2>
-      <p>Шаг за шагом к вашей логистической системе</p>
+    <div class="s-title" data-animate>
+      <h2 class="s-title__heading">Наши услуги</h2>
+      <p class="s-title__sub">Полный спектр грузоперевозочных услуг</p>
     </div>
-    <div class="process-list">
-      <div class="process-item" data-animate>
-        <div class="process-item__number">01</div>
-        <div class="process-item__content">
-          <h3>Аудит и анализ</h3>
-          <p>Изучаем текущие процессы, объёмы, маршруты. Фиксируем боли и точки роста. Формируем требования.</p>
+    <div class="services-grid">
+      <div class="service-card" data-animate>
+        <div class="service-card__icon">🏠</div>
+        <div class="service-card__title">Грузоперевозки по городу</div>
+        <div class="service-card__desc">Перевозка мебели, стройматериалов и техники. Аккуратная погрузка, фиксированные цены.</div>
+      </div>
+      <div class="service-card" data-animate>
+        <div class="service-card__icon">🏢</div>
+        <div class="service-card__title">Междугородние перевозки</div>
+        <div class="service-card__desc">Надёжная доставка грузов по всей России. GPS-мониторинг, страхование, точные сроки.</div>
+      </div>
+      <div class="service-card" data-animate>
+        <div class="service-card__icon">🚛</div>
+        <div class="service-card__title">Квартирный переезд</div>
+        <div class="service-card__desc">Переезд под ключ: упаковка, погрузка, транспортировка, сборка мебели на новом месте.</div>
+      </div>
+      <div class="service-card" data-animate>
+        <div class="service-card__icon">👷</div>
+        <div class="service-card__title">Услуги грузчиков</div>
+        <div class="service-card__desc">Опытные грузчики для погрузки и разгрузки. Бережное обращение с вещами.</div>
+      </div>
+      <div class="service-card" data-animate>
+        <div class="service-card__icon">🛋️</div>
+        <div class="service-card__title">Перевозка спецтехники</div>
+        <div class="service-card__desc">Транспортировка оборудования, стройтехники и негабаритных грузов любой сложности.</div>
+      </div>
+      <div class="service-card" data-animate>
+        <div class="service-card__icon">📦</div>
+        <div class="service-card__title">Офисный переезд</div>
+        <div class="service-card__desc">Быстрый переезд офиса с минимальным простоем. Упаковка документов и оргтехники.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="s-title" data-animate>
+      <h2 class="s-title__heading">Наша компания в цифрах</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item" data-animate>
+        <div class="stat-item__num">10+</div>
+        <div class="stat-item__label">лет на рынке</div>
+      </div>
+      <div class="stat-item" data-animate>
+        <div class="stat-item__num">480+</div>
+        <div class="stat-item__label">выполненных заказов</div>
+      </div>
+      <div class="stat-item" data-animate>
+        <div class="stat-item__num">50+</div>
+        <div class="stat-item__label">единиц техники</div>
+      </div>
+      <div class="stat-item" data-animate>
+        <div class="stat-item__num">100%</div>
+        <div class="stat-item__label">довольных клиентов</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="s-title" data-animate>
+      <h2 class="s-title__heading">Выполненные проекты</h2>
+      <p class="s-title__sub">Примеры наших работ</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-animate>
+        <img src="photo_1.jpg" alt="Проект 1">
+        <div class="portfolio-item__overlay">
+          <div class="portfolio-item__title">Переезд офиса</div>
+          <div class="portfolio-item__desc">120 м², 2 дня</div>
         </div>
       </div>
-      <div class="process-item" data-animate>
-        <div class="process-item__number">02</div>
-        <div class="process-item__content">
-          <h3>Прототипирование</h3>
-          <p>Создаём макеты интерфейсов: диспетчер, водитель, клиент. Согласуем логику и структуру системы.</p>
+      <div class="portfolio-item" data-animate>
+        <img src="photo_1.jpg" alt="Проект 2">
+        <div class="portfolio-item__overlay">
+          <div class="portfolio-item__title">Квартирный переезд</div>
+          <div class="portfolio-item__desc">3-комнатная, 1 день</div>
         </div>
       </div>
-      <div class="process-item" data-animate>
-        <div class="process-item__number">03</div>
-        <div class="process-item__content">
-          <h3>Дизайн</h3>
-          <p>Разрабатываем UI/UX дизайн. Создаём удобные, понятные интерфейсы для быстрой работы.</p>
+      <div class="portfolio-item" data-animate>
+        <img src="photo_1.jpg" alt="Проект 3">
+        <div class="portfolio-item__overlay">
+          <div class="portfolio-item__title">Перевозка оборудования</div>
+          <div class="portfolio-item__desc">Промышленное, 15 т</div>
         </div>
       </div>
-      <div class="process-item" data-animate>
-        <div class="process-item__number">04</div>
-        <div class="process-item__content">
-          <h3>Разработка</h3>
-          <p>Программируем веб-платформу и мобильные приложения. Настраиваем GPS, маршрутизацию, интеграции.</p>
+      <div class="portfolio-item" data-animate>
+        <img src="photo_1.jpg" alt="Проект 4">
+        <div class="portfolio-item__overlay">
+          <div class="portfolio-item__title">Складской переезд</div>
+          <div class="portfolio-item__desc">500 м², 3 дня</div>
         </div>
       </div>
-      <div class="process-item" data-animate>
-        <div class="process-item__number">05</div>
-        <div class="process-item__content">
-          <h3>Тестирование</h3>
-          <p>Проверяем все сценарии работы. Отлаживаем баги. Оптимизируем производительность.</p>
+      <div class="portfolio-item" data-animate>
+        <img src="photo_1.jpg" alt="Проект 5">
+        <div class="portfolio-item__overlay">
+          <div class="portfolio-item__title">Межгород</div>
+          <div class="portfolio-item__desc">Калининград-Гданьск</div>
         </div>
       </div>
-      <div class="process-item" data-animate>
-        <div class="process-item__number">06</div>
-        <div class="process-item__content">
-          <h3>Запуск и обучение</h3>
-          <p>Проводим обучение команды, запускаем систему. Сопровождаем первые недели работы.</p>
+      <div class="portfolio-item" data-animate>
+        <img src="photo_1.jpg" alt="Проект 6">
+        <div class="portfolio-item__overlay">
+          <div class="portfolio-item__title">Доставка стройматериалов</div>
+          <div class="portfolio-item__desc">На объект, 20 т</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
+<!-- FAQ -->
+<section class="faq" id="faq">
   <div class="container">
-    <div class="cta__content" data-animate>
-      <h2>ЗАКАЖИТЕ ПЕРЕВОЗКУ<br>ПРЯМО СЕЙЧАС</h2>
-      <p>Оставьте заявку — и мы рассчитаем стоимость за 5 минут. Бесплатный выезд оценщика в Калининград. Страховка, GPS, опытные грузчики — всё включено.</p>
-      <a href="#contacts" class="btn">Оставить заявку →</a>
+    <div class="s-title" data-animate>
+      <h2 class="s-title__heading">Частые вопросы</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item" data-animate>
+        <button class="faq-item__q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Как рассчитывается стоимость? <span class="icon">+</span></button>
+        <div class="faq-item__a">Стоимость зависит от объёма, расстояния, количества грузчиков и дополнительных услуг. Точный расчёт — после осмотра.</div>
+      </div>
+      <div class="faq-item" data-animate>
+        <button class="faq-item__q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Как быстро можете приехать? <span class="icon">+</span></button>
+        <div class="faq-item__a">В течение 1-2 часов с момента подтверждения заказа. Возможна подача в день обращения.</div>
+      </div>
+      <div class="faq-item" data-animate>
+        <button class="faq-item__q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Застрахованы ли грузы? <span class="icon">+</span></button>
+        <div class="faq-item__a">Да, все грузы застрахованы. В случае повреждения компенсируем полную стоимость.</div>
+      </div>
+      <div class="faq-item" data-animate>
+        <button class="faq-item__q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Работаете ли вы с юридическими лицами? <span class="icon">+</span></button>
+        <div class="faq-item__a">Да, работаем как с физическими, так и с юридическими лицами. Предоставляем все необходимые документы.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1480,14 +1526,15 @@
 <!-- CONTACT FORM -->
 <section class="contact-form" id="contacts">
   <div class="container">
+    <div class="s-title" data-animate>
+      <h2 class="s-title__heading">Получите консультацию</h2>
+      <p class="s-title__sub">Оставьте заявку и мы свяжемся с вами в течение 15 минут</p>
+    </div>
     <div class="form-wrapper" data-animate>
-      <h2>Свяжитесь с нами</h2>
-      <p>Ответим в течение 15 минут</p>
       <form class="js-form" data-bot-token="8434584674:AAGvxeQulQDyaESBQeu7rF5siC6HHs2McrE" data-chat-id="549333404">
         <input name="name" placeholder="Ваше имя" required>
         <input name="phone" placeholder="телефон" required>
-        <input name="company" placeholder="Компания">
-        <textarea name="message" placeholder="Расскажите о задаче"></textarea>
+        <textarea name="message" placeholder="Опишите вашу задачу"></textarea>
         <button type="submit" class="btn btn--orange">Отправить заявку</button>
       </form>
     </div>
@@ -1514,39 +1561,9 @@
 </section>
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__logo">Дмитрий</div>
-        <div class="footer__desc">Профессиональные грузоперевозки в Калининград. Работаем с 2015 года.</div>
-      </div>
-      <div>
-        <div class="footer__title">Услуги</div>
-        <div class="footer__links">
-          <a href="#">Аудит логистики</a>
-          <a href="#">Разработка ПО</a>
-          <a href="#">Интеграции</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__title">Компания</div>
-        <div class="footer__links">
-          <a href="#">О нас</a>
-          <a href="#">Кейсы</a>
-          <a href="#">Контакты</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__title">Контакты</div>
-        <div class="footer__links">
-          <a href="tel:+79000000000">+7 (900) 000-00-00</a>
-          <a href="mailto:info@info.ru">info@info.ru</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      © 2026 Дмитрий. Все права защищены.
-    </div>
+  <div class="container footer__inner">
+    <div class="footer__logo">Дмитрий</div>
+    <div class="footer__copy">© 2026. Профессиональные грузоперевозки.</div>
   </div>
 </footer>
 
@@ -1567,7 +1584,7 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -35px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
 // Telegram form
@@ -1575,26 +1592,16 @@ for (const form of document.querySelectorAll('.js-form')) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const fd = new FormData(form);
-    const msg = [
-      '🚚 Новая заявка с сайта',
-      '',
-      'Имя: ' + (fd.get('name') || ''),
-      'Телефон: ' + (fd.get('phone') || ''),
-      'Компания: ' + (fd.get('company') || ''),
-      'Сообщение: ' + (fd.get('message') || '')
-    ].join('\n');
+    const msg = ['🚚 Новая заявка с сайта', '', 'Имя: ' + (fd.get('name') || ''), 'Телефон: ' + (fd.get('phone') || ''), 'Сообщение: ' + (fd.get('message') || '')].join('\n');
     try {
       const res = await fetch('https://api.telegram.org/bot' + form.dataset.botToken + '/sendMessage', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        method: 'POST', headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ chat_id: 549333404, text: msg })
       });
       if (!res.ok) throw new Error();
       (function(){var _n=document.createElement('div');_n.textContent='Заявка отправлена! Перезвоним в течение 15 минут.';_n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#4caf50;color:#fff;padding:16px 32px;border-radius:8px;z-index:9999;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:fadeInOut 3s forwards';document.body.appendChild(_n);setTimeout(function(){_n.remove()},3500)})();
       form.reset();
-    } catch {
-      (function(){var _n=document.createElement('div');_n.textContent='Не удалось отправить. Позвоните нам напрямую.';_n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#f44336;color:#fff;padding:16px 32px;border-radius:8px;z-index:9999;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:fadeInOut 3s forwards';document.body.appendChild(_n);setTimeout(function(){_n.remove()},4000)})();
-    }
+    } catch { (function(){var _n=document.createElement('div');_n.textContent='Не удалось отправить. Позвоните нам напрямую.';_n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#f44336;color:#fff;padding:16px 32px;border-radius:8px;z-index:9999;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:fadeInOut 3s forwards';document.body.appendChild(_n);setTimeout(function(){_n.remove()},4000)})(); }
   });
 }
 </script>

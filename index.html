@@ -9,448 +9,370 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
     :root {
-      --bg-dark: #0a0a0a;
-      --bg-card: #141414;
-      --text: #e0e0e0;
-      --text-dim: #9ca3af;
-      --yellow: #fbbf24;
-      --yellow-dark: #f59e0b;
-      --border: rgba(251,191,36,0.15);
-      --shadow: 0 4px 16px rgba(0,0,0,0.5);
-      --font-heading: 'Rajdhani', sans-serif;
-      --font-body: 'Inter', sans-serif;
+      --bg: #1a1614;
+      --bg-dark: #0f0e0d;
+      --bg-light: #2d2824;
+      --text: #f5f1ed;
+      --text-light: #b8afa7;
+      --gold: #c9a96e;
+      --gold-dark: #a68957;
+      --border: rgba(201,169,110,0.15);
+      --shadow: 0 8px 30px rgba(0,0,0,0.4);
+      --font-serif: 'Cormorant', serif;
+      --font-sans: 'Open Sans', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); background: var(--bg-dark); color: var(--text); line-height: 1.6; }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; }
 
-    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
-
-    /* === TOP BAR === */
-    .top-bar {
-      background: var(--bg-card);
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .top-bar__inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      color: var(--text-dim);
-    }
-    .top-bar a {
-      color: var(--yellow);
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 600;
-    }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
 
     /* === HEADER === */
     .header {
-      background: rgba(10,10,10,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
+      background: rgba(26,22,20,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
     .header__inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 70px;
+      height: 80px;
     }
     .logo {
-      font-family: var(--font-heading);
+      font-family: var(--font-serif);
       font-size: 26px;
       font-weight: 700;
-      color: var(--yellow);
+      color: var(--gold);
       text-decoration: none;
-      letter-spacing: 0.05em;
     }
     .nav {
       display: flex;
-      gap: 32px;
+      gap: 40px;
     }
     .nav a {
       font-size: 14px;
       font-weight: 600;
-      color: var(--text-dim);
+      color: var(--text-light);
       text-decoration: none;
       transition: color 0.3s;
     }
-    .nav a:hover { color: var(--yellow); }
-    .header__cta {
-      padding: 10px 24px;
-      border-radius: 4px;
-      background: var(--yellow);
-      color: var(--bg-dark);
-      font-size: 14px;
+    .nav a:hover { color: var(--gold); }
+    .header__phone {
+      font-size: 16px;
       font-weight: 700;
+      color: var(--gold);
       text-decoration: none;
-      transition: all 0.3s;
+      transition: color 0.3s;
     }
-    .header__cta:hover {
-      background: var(--yellow-dark);
-      transform: translateY(-2px);
+    .header__phone:hover {
+      color: var(--gold-dark);
     }
 
     /* === HERO === */
     .hero {
-      position: relative;
-      padding: 100px 0 90px;
-      background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(20,20,20,0.85) 100%),
+      padding: 100px 0;
+      background: linear-gradient(135deg, rgba(26,22,20,0.92) 0%, rgba(15,14,13,0.88) 100%),
                   url('photo_1.jpg') center/cover no-repeat;
-      text-align: center;
+      position: relative;
     }
-    .hero__badge {
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 70px;
+      align-items: center;
+    }
+    .hero__content h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(42px, 5.5vw, 66px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 28px;
+      color: var(--gold);
+    }
+    .hero__exp {
       display: inline-block;
-      padding: 6px 18px;
-      border-radius: 20px;
-      background: rgba(251,191,36,0.15);
-      border: 1px solid var(--yellow);
-      color: var(--yellow);
-      font-size: 12px;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      padding: 12px 24px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    .hero__exp strong {
+      font-size: 32px;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      color: var(--gold);
+      font-family: var(--font-serif);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .hero__content p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+    .hero__image {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 2px solid var(--border);
+    }
+    .hero__image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(20%) sepia(10%);
+    }
+
+    /* === SERVICES === */
+    .services {
+      padding: 90px 0;
+      background: var(--bg-dark);
+    }
+    .s-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .s-title__heading {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 4.5vw, 52px);
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--gold);
+    }
+    .s-title__sub {
+      font-size: 15px;
+      color: var(--text-light);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .service-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px 32px;
+      text-align: center;
+      transition: all 0.4s;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+      border-color: var(--gold);
+    }
+    .service-card__icon {
+      font-size: 52px;
       margin-bottom: 24px;
+      display: block;
     }
-    .hero__title {
-      font-family: var(--font-heading);
-      font-size: clamp(40px, 6vw, 64px);
+    .service-card__title {
+      font-family: var(--font-serif);
+      font-size: 22px;
       font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      color: var(--yellow);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+      color: var(--gold);
     }
-    .hero__subtitle {
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto 36px;
-      color: var(--text-dim);
+    .service-card__text {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 24px;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 14px 32px;
-      border-radius: 4px;
-      font-size: 15px;
+      padding: 13px 32px;
+      border-radius: 8px;
+      font-size: 13px;
       font-weight: 700;
       text-decoration: none;
       transition: all 0.3s;
       cursor: pointer;
       border: none;
+      font-family: var(--font-sans);
     }
-    .btn--yellow {
-      background: var(--yellow);
-      color: var(--bg-dark);
+    .btn--gold {
+      background: var(--gold);
+      color: var(--bg);
     }
-    .btn--yellow:hover {
-      background: var(--yellow-dark);
+    .btn--gold:hover {
+      background: var(--gold-dark);
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(251,191,36,0.3);
+      box-shadow: 0 8px 20px rgba(201,169,110,0.3);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .btn--outline:hover {
+      background: var(--gold);
+      color: var(--bg);
     }
 
-    /* === PRODUCTS === */
-    .products {
-      padding: 80px 0;
-      background: var(--bg-dark);
+    /* === FEATURES === */
+    .features {
+      padding: 90px 0;
+      background: var(--bg);
     }
-    .s-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .s-title__heading {
-      font-family: var(--font-heading);
-      font-size: clamp(32px, 4vw, 46px);
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--yellow);
-      text-transform: uppercase;
-    }
-    .s-title__sub {
-      font-size: 16px;
-      color: var(--text-dim);
-    }
-    .products-grid {
+    .features__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+    .feature-item {
+      display: flex;
       gap: 24px;
     }
-    .product-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: all 0.3s;
-    }
-    .product-card:hover {
-      border-color: var(--yellow);
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(251,191,36,0.2);
-    }
-    .product-card__image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-    }
-    .product-card__content {
-      padding: 24px 20px;
-    }
-    .product-card__title {
-      font-family: var(--font-heading);
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--yellow);
-    }
-    .product-card__desc {
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .product-card__list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-    .product-card__list li {
-      font-size: 12px;
-      padding-left: 16px;
-      position: relative;
-      color: var(--text-dim);
-    }
-    .product-card__list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--yellow);
-    }
-
-    /* === STATS === */
-    .stats {
-      padding: 70px 0;
-      background: var(--bg-card);
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-    }
-    .stat-item {
-      text-align: center;
-    }
-    .stat-item__value {
-      font-family: var(--font-heading);
-      font-size: 52px;
-      font-weight: 700;
-      color: var(--yellow);
-      margin-bottom: 10px;
-    }
-    .stat-item__label {
-      font-size: 14px;
-      color: var(--text-dim);
-    }
-
-    /* === CTA BLOCK === */
-    .cta-block {
-      padding: 80px 0;
-      background: linear-gradient(135deg, var(--yellow), var(--yellow-dark));
-      color: var(--bg-dark);
-    }
-    .cta-block__inner {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .cta-block h3 {
-      font-family: var(--font-heading);
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      line-height: 1.2;
-    }
-    .cta-block p {
-      font-size: 16px;
-      line-height: 1.7;
-      opacity: 0.9;
-    }
-    .cta-block .btn {
-      background: var(--bg-dark);
-      color: var(--yellow);
-    }
-    .cta-block .btn:hover {
-      background: var(--bg-card);
-    }
-
-    /* === PROCESS === */
-    .process {
-      padding: 80px 0;
-      background: var(--bg-dark);
-    }
-    .process__content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-    .process__image img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-    }
-    .process__text h3 {
-      font-family: var(--font-heading);
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: var(--yellow);
-      text-transform: uppercase;
-    }
-    .process__text p {
-      font-size: 15px;
-      color: var(--text-dim);
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-
-    /* === SERVICE CARDS === */
-    .service-cards {
-      padding: 80px 0;
-      background: var(--bg-card);
-    }
-    .service-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .service-item {
-      background: var(--bg-dark);
-      padding: 28px 24px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.3s;
-    }
-    .service-item:hover {
-      border-color: var(--yellow);
-      box-shadow: 0 8px 24px rgba(251,191,36,0.15);
-    }
-    .service-item__icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: rgba(251,191,36,0.15);
-      color: var(--yellow);
+    .feature-item__icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
-      margin-bottom: 16px;
+      font-size: 28px;
+      flex-shrink: 0;
     }
-    .service-item__title {
-      font-family: var(--font-heading);
-      font-size: 16px;
+    .feature-item__content h3 {
+      font-family: var(--font-serif);
+      font-size: 20px;
       font-weight: 700;
       margin-bottom: 10px;
-      color: var(--yellow);
+      color: var(--gold);
     }
-    .service-item__desc {
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.6;
+    .feature-item__content p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.8;
     }
 
     /* === GALLERY === */
     .gallery {
-      padding: 80px 0;
+      padding: 90px 0;
       background: var(--bg-dark);
     }
-    .gallery-grid {
+    .gallery__grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
-    .gallery-item {
+    .gallery__item {
       position: relative;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
-      cursor: pointer;
+      border: 1px solid var(--border);
       transition: all 0.3s;
+      cursor: pointer;
     }
-    .gallery-item:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 24px rgba(251,191,36,0.3);
+    .gallery__item:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow);
     }
-    .gallery-item img {
+    .gallery__item img {
       width: 100%;
-      height: 240px;
+      height: 280px;
       object-fit: cover;
       display: block;
-    }
-    .gallery-item__overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 16px;
-      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    }
-    .gallery-item__title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--yellow);
+      filter: grayscale(10%);
     }
 
-    /* === CONTACT === */
-    .contact {
-      padding: 80px 0;
-      background: var(--bg-card);
+    /* === CTA === */
+    .cta {
+      padding: 90px 0;
+      background: var(--bg);
+    }
+    .cta__wrapper {
+      background: linear-gradient(135deg, var(--bg-light), var(--bg-dark));
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 70px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta__wrapper::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%);
+    }
+    .cta__content {
+      position: relative;
+      z-index: 2;
+    }
+    .cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 54px);
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+    .cta p {
+      font-size: 16px;
+      color: var(--text-light);
+      margin-bottom: 36px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* === CONTACT FORM === */
+    .contact-form {
+      padding: 90px 0;
+      background: var(--bg-dark);
     }
     .form-wrapper {
-      max-width: 650px;
+      max-width: 700px;
       margin: 0 auto;
-      background: var(--bg-dark);
+      background: var(--bg-light);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 44px;
+      border-radius: 16px;
+      padding: 50px;
+      box-shadow: var(--shadow);
     }
     .form-wrapper input,
     .form-wrapper textarea {
       width: 100%;
-      padding: 14px 18px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 4px;
-      background: var(--bg-card);
+      padding: 15px 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
       color: var(--text);
       font: inherit;
       font-size: 14px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       transition: all 0.3s;
     }
     .form-wrapper input::placeholder,
     .form-wrapper textarea::placeholder {
-      color: var(--text-dim);
+      color: var(--text-light);
+      opacity: 0.6;
     }
     .form-wrapper input:focus,
     .form-wrapper textarea:focus {
       outline: none;
-      border-color: var(--yellow);
-      box-shadow: 0 0 0 3px rgba(251,191,36,0.1);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,169,110,0.15);
     }
     .form-wrapper textarea {
       resize: vertical;
-      min-height: 110px;
+      min-height: 120px;
     }
     .form-wrapper .btn {
       width: 100%;
@@ -459,33 +381,34 @@
 
     /* === FOOTER === */
     .footer {
-      background: var(--bg-dark);
-      color: var(--text-dim);
-      padding: 50px 0 30px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      background: var(--bg);
+      color: var(--text-light);
+      padding: 60px 0 30px;
+      border-top: 1px solid var(--border);
     }
     .footer__grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
+      gap: 50px;
       margin-bottom: 40px;
     }
     .footer__logo {
-      font-family: var(--font-heading);
-      font-size: 24px;
+      font-family: var(--font-serif);
+      font-size: 28px;
       font-weight: 700;
-      color: var(--yellow);
-      margin-bottom: 14px;
+      color: var(--gold);
+      margin-bottom: 16px;
     }
     .footer__desc {
       font-size: 13px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
     .footer__title {
       font-size: 15px;
       font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
+      color: var(--gold);
+      margin-bottom: 18px;
+      font-family: var(--font-serif);
     }
     .footer__links {
       display: flex;
@@ -493,19 +416,19 @@
       gap: 10px;
     }
     .footer__links a {
-      color: var(--text-dim);
+      color: var(--text-light);
       text-decoration: none;
       font-size: 13px;
       transition: color 0.3s;
     }
     .footer__links a:hover {
-      color: var(--yellow);
+      color: var(--gold);
     }
     .footer__bottom {
       padding-top: 30px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid var(--border);
       text-align: center;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     /* === FLOATING / MOBILE === */
@@ -513,8 +436,8 @@
     .sticky-tg {
       position: fixed;
       right: 22px;
-      width: 56px;
-      height: 56px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -524,10 +447,10 @@
       font-size: 24px;
       z-index: 60;
       transition: transform 0.3s;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
     }
     .sticky-call {
-      bottom: 92px;
+      bottom: 94px;
       background: linear-gradient(135deg, #4ade80, #22c55e);
     }
     .sticky-tg {
@@ -549,26 +472,26 @@
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       padding: 12px;
-      background: rgba(10,10,10,0.98);
+      background: rgba(26,22,20,0.98);
       backdrop-filter: blur(10px);
-      border-top: 1px solid var(--border);
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.5);
+      border-top: 2px solid var(--border);
+      box-shadow: 0 -6px 20px rgba(0,0,0,0.4);
     }
     .mobile-cta a {
       text-align: center;
       text-decoration: none;
       font-weight: 700;
-      border-radius: 4px;
+      border-radius: 8px;
       padding: 14px;
       font-size: 14px;
     }
     .mobile-cta__call {
       color: #fff;
-      background: linear-gradient(135deg, #4ade80, #22c55e);
+      background: #22c55e;
     }
     .mobile-cta__lead {
-      color: var(--bg-dark);
-      background: var(--yellow);
+      color: var(--bg);
+      background: var(--gold);
     }
 
     /* === ANIMATIONS === */
@@ -584,11 +507,17 @@
 
     /* === RESPONSIVE === */
     @media (max-width: 1024px) {
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .hero__grid {
+        grid-template-columns: 1fr;
       }
-      .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .features__grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery__grid {
+        grid-template-columns: repeat(2, 1fr);
       }
       .footer__grid {
         grid-template-columns: 1fr 1fr;
@@ -598,17 +527,7 @@
       .nav {
         display: none;
       }
-      .top-bar {
-        display: none;
-      }
-      .products-grid,
-      .stats-grid,
-      .service-cards-grid,
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-      .cta-block__inner,
-      .process__content {
+      .gallery__grid {
         grid-template-columns: 1fr;
       }
       .sticky-call,
@@ -622,10 +541,13 @@
         padding-bottom: 80px;
       }
       .hero {
-        padding: 80px 0 70px;
+        padding: 70px 0;
       }
       .form-wrapper {
-        padding: 32px 24px;
+        padding: 36px 28px;
+      }
+      .cta__wrapper {
+        padding: 50px 32px;
       }
       .footer__grid {
         grid-template-columns: 1fr;
@@ -1179,28 +1101,17 @@
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div class="container top-bar__inner">
-    <div>Профессиональные грузоперевозки и складская логистика</div>
-    <div>
-      <a href="tel:+79000000000">+7 (900) 000-00-00</a>
-      <a href="mailto:info@info.ru">info@info.ru</a>
-    </div>
-  </div>
-</div>
-
 <!-- HEADER -->
 <header class="header">
   <div class="container header__inner">
     <a href="#top" class="logo">Дмитрий</a>
     <nav class="nav">
-      <a href="#products">Услуги</a>
-      <a href="#process">О компании</a>
-      <a href="#gallery">Проекты</a>
+      <a href="#services">Услуги</a>
+      <a href="#features">О нас</a>
+      <a href="#gallery">Работы</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a href="#contacts" class="header__cta">Получить расчёт</a>
+    <a href="tel:+79000000000" class="header__phone">+7 (900) 000-00-00</a>
   </div>
 </header>
 
@@ -1219,207 +1130,118 @@
 
 
   <div class="container">
-    <div data-animate>
-      <div class="hero__badge">Надёжная логистика с 2009 года</div>
-      <h1 class="hero__title">ГРУЗОПЕРЕВОЗКИ<br>В КАЛИНИНГРАД</h1>
-      <p class="hero__subtitle">Профессиональная перевозка грузов любой сложности</p>
-      <a href="#contacts" class="btn btn--yellow">Рассчитать стоимость →</a>
+    <div class="hero__grid">
+      <div class="hero__content" data-animate>
+        <h1>Грузоперевозки<br>в Калининграде и<br>Московской области</h1>
+        <div class="hero__exp">
+          <strong>15 лет</strong>
+          логистического опыта
+        </div>
+        <p>Обеспечиваем комплексную логистическую поддержку для бизнеса и частных лиц. Решаем задачи любой сложности с гарантией качества и соблюдения сроков.</p>
+      </div>
+      <div class="hero__image" data-animate>
+        <img src="photo_2.jpg" alt="Профессиональная команда">
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products" id="products">
+<!-- SERVICES -->
+<section class="services" id="services">
   <div class="container">
     <div class="s-title" data-animate>
       <h2 class="s-title__heading">Наши услуги</h2>
-      <p class="s-title__sub">Комплексные решения по складированию и транспортировке</p>
+      <p class="s-title__sub">Полный спектр логистических решений для вашего бизнеса</p>
     </div>
-    <div class="products-grid">
-      <div class="product-card" data-animate>
-        <img src="photo_2.jpg" alt="Складирование" class="product-card__image">
-        <div class="product-card__content">
-          <div class="product-card__title">Складирование товаров</div>
-          <div class="product-card__desc">Современные склады класса А с системой автоматизации и контроля</div>
-          <ul class="product-card__list">
-            <li>Охраняемая территория 24/7</li>
-            <li>Температурный контроль</li>
-            <li>Системы видеонаблюдения</li>
-            <li>Погрузочно-разгрузочные работы</li>
-            <li>Учёт в режиме онлайн</li>
-          </ul>
-        </div>
+    <div class="services-grid">
+      <div class="service-card" data-animate>
+        <span class="service-card__icon">🚚</span>
+        <h3 class="service-card__title">Грузоперевозки по городу</h3>
+        <p class="service-card__text">Перевозка мебели, стройматериалов и техники. Аккуратная погрузка, фиксированные цены.</p>
+        <a href="#contacts" class="btn btn--outline">Получить консультацию</a>
       </div>
-      <div class="product-card" data-animate>
-        <img src="photo_3.jpg" alt="Магистральные перевозки" class="product-card__image">
-        <div class="product-card__content">
-          <div class="product-card__title">Магистральные перевозки</div>
-          <div class="product-card__desc">Доставка грузов по всей России и странам СНГ</div>
-          <ul class="product-card__list">
-            <li>Собственный автопарк</li>
-            <li>GPS-мониторинг транспорта</li>
-            <li>Страхование грузов</li>
-            <li>Срочная доставка</li>
-            <li>Любые объёмы</li>
-          </ul>
-        </div>
+      <div class="service-card" data-animate>
+        <span class="service-card__icon">🌍</span>
+        <h3 class="service-card__title">Междугородние перевозки</h3>
+        <p class="service-card__text">Надёжная доставка грузов по всей России. GPS-мониторинг, страхование, точные сроки.</p>
+        <a href="#contacts" class="btn btn--outline">Получить консультацию</a>
       </div>
-      <div class="product-card" data-animate>
-        <img src="photo_4.jpg" alt="Складское освещение" class="product-card__image">
-        <div class="product-card__content">
-          <div class="product-card__title">Международные перевозки</div>
-          <div class="product-card__desc">Экспорт и импорт грузов с таможенным оформлением</div>
-          <ul class="product-card__list">
-            <li>Таможенная очистка</li>
-            <li>Сертификация товаров</li>
-            <li>Мультимодальные перевозки</li>
-            <li>Консолидация грузов</li>
-            <li>ВЭД-консалтинг</li>
-          </ul>
-        </div>
+      <div class="service-card" data-animate>
+        <span class="service-card__icon">📦</span>
+        <h3 class="service-card__title">Квартирный переезд</h3>
+        <p class="service-card__text">Переезд под ключ: упаковка, погрузка, транспортировка, сборка мебели на новом месте.</p>
+        <a href="#contacts" class="btn btn--outline">Получить консультацию</a>
       </div>
-      <div class="product-card" data-animate>
-        <img src="photo_5.jpg" alt="Промышленное освещение" class="product-card__image">
-        <div class="product-card__content">
-          <div class="product-card__title">Экспресс-доставка</div>
-          <div class="product-card__desc">Срочная доставка за 4-24 часа</div>
-          <ul class="product-card__list">
-            <li>Доставка за 4 часа по городу</li>
-            <li>Междугородние экспресс-рейсы</li>
-            <li>Курьерские услуги</li>
-            <li>Доставка документов</li>
-            <li>Личный менеджер</li>
-          </ul>
-        </div>
+      <div class="service-card" data-animate>
+        <span class="service-card__icon">📋</span>
+        <h3 class="service-card__title">Услуги грузчиков</h3>
+        <p class="service-card__text">Опытные грузчики для погрузки и разгрузки. Бережное обращение с вещами.</p>
+        <a href="#contacts" class="btn btn--outline">Получить консультацию</a>
       </div>
-      <div class="product-card" data-animate>
-        <img src="photo_1.jpg" alt="Автоматизированное освещение" class="product-card__image">
-        <div class="product-card__content">
-          <div class="product-card__title">Логистические решения</div>
-          <div class="product-card__desc">Управление цепями поставок под ключ</div>
-          <ul class="product-card__list">
-            <li>Проектирование цепей поставок</li>
-            <li>Оптимизация маршрутов</li>
-            <li>Управление запасами</li>
-            <li>Интеграция с учётными системами</li>
-            <li>Аналитика и отчётность</li>
-          </ul>
-        </div>
+      <div class="service-card" data-animate>
+        <span class="service-card__icon">🏢</span>
+        <h3 class="service-card__title">Перевозка спецтехники</h3>
+        <p class="service-card__text">Транспортировка оборудования, стройтехники и негабаритных грузов любой сложности.</p>
+        <a href="#contacts" class="btn btn--outline">Получить консультацию</a>
       </div>
-      <div class="product-card" data-animate>
-        <img src="photo_2.jpg" alt="Уличное освещение" class="product-card__image">
-        <div class="product-card__content">
-          <div class="product-card__title">Грузчики и упаковка</div>
-          <div class="product-card__desc">Профессиональные услуги грузчиков и упаковщиков</div>
-          <ul class="product-card__list">
-            <li>Опытная команда грузчиков</li>
-            <li>Упаковочные материалы</li>
-            <li>Защита хрупких грузов</li>
-            <li>Разборка/сборка мебели</li>
-            <li>Утилизация упаковки</li>
-          </ul>
-        </div>
+      <div class="service-card" data-animate>
+        <span class="service-card__icon">⚖️</span>
+        <h3 class="service-card__title">Офисный переезд</h3>
+        <p class="service-card__text">Быстрый переезд офиса с минимальным простоем. Упаковка документов и оргтехники.</p>
+        <a href="#contacts" class="btn btn--outline">Получить консультацию</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item" data-animate>
-        <div class="stat-item__value">10+</div>
-        <div class="stat-item__label">Лет на рынке логистики</div>
-      </div>
-      <div class="stat-item" data-animate>
-        <div class="stat-item__value">5</div>
-        <div class="stat-item__label">Собственных складов</div>
-      </div>
-      <div class="stat-item" data-animate>
-        <div class="stat-item__value">95%</div>
-        <div class="stat-item__label">Доставка в срок</div>
-      </div>
-      <div class="stat-item" data-animate>
-        <div class="stat-item__value">1325</div>
-        <div class="stat-item__label">Реализованных проектов</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BLOCK -->
-<section class="cta-block">
-  <div class="container">
-    <div class="cta-block__inner" data-animate>
-      <div>
-        <h3>Получите профессиональную консультацию и узнайте, как улучшить ваши поставки</h3>
-        <p>Оставьте заявку — и мы рассчитаем стоимость за 5 минут. Бесплатный выезд оценщика в Калининград. Страховка, GPS, опытные грузчики — всё включено.</p>
-      </div>
-      <div>
-        <a href="#contacts" class="btn">Получить консультацию</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="process" id="process">
+<!-- FEATURES -->
+<section class="features" id="features">
   <div class="container">
     <div class="s-title" data-animate>
-      <h2 class="s-title__heading">ЗАКАЖИТЕ ПЕРЕВОЗКУ<br>ПРЯМО СЕЙЧАС</h2>
-      <p class="s-title__sub">Опыт работы со складами и перевозками</p>
+      <h2 class="s-title__heading">Почему выбирают нас</h2>
     </div>
-    <div class="process__content">
-      <div class="process__image" data-animate>
-        <img src="photo_3.jpg" alt="О компании">
+    <div class="features__grid">
+      <div class="feature-item" data-animate>
+        <div class="feature-item__icon">⏰</div>
+        <div class="feature-item__content">
+          <h3>Опыт с 2009 года</h3>
+          <p>За 15 лет работы мы успешно завершили более 5,000 проектов для крупных и малых компаний.</p>
+        </div>
       </div>
-      <div class="process__text" data-animate>
-        <h3>Сотрудничайте с нами надёжно</h3>
-        <p>С 2009 года мы специализируемся на комплексных логистических решениях для бизнеса любого масштаба.</p>
-        <p>Наша компания предлагает полный спектр услуг: от хранения товаров на современных складах до международных перевозок с таможенным оформлением.</p>
-        <p>Мы ценим каждого клиента и гарантируем индивидуальный подход, прозрачность работы и выполнение обязательств в срок.</p>
+      <div class="feature-item" data-animate>
+        <div class="feature-item__icon">🎯</div>
+        <div class="feature-item__content">
+          <h3>Индивидуальный подход</h3>
+          <p>Разрабатываем уникальные логистические решения под каждого клиента с учётом всех нюансов бизнеса.</p>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICE CARDS -->
-<section class="service-cards">
-  <div class="container">
-    <div class="s-title" data-animate>
-      <h2 class="s-title__heading">Сотрудничество с нами - это</h2>
-    </div>
-    <div class="service-cards-grid">
-      <div class="service-item" data-animate>
-        <div class="service-item__icon">⚡</div>
-        <div class="service-item__title">Высокая скорость обработки</div>
-        <div class="service-item__desc">Принимаем заявки 24/7, обрабатываем в течение 30 минут</div>
+      <div class="feature-item" data-animate>
+        <div class="feature-item__icon">🔒</div>
+        <div class="feature-item__content">
+          <h3>Полная безопасность</h3>
+          <p>Страхование грузов, GPS-контроль, профессиональные водители с большим стажем.</p>
+        </div>
       </div>
-      <div class="service-item" data-animate>
-        <div class="service-item__icon">📊</div>
-        <div class="service-item__title">Прозрачная отчётность</div>
-        <div class="service-item__desc">Полный контроль грузов через личный кабинет</div>
+      <div class="feature-item" data-animate>
+        <div class="feature-item__icon">💰</div>
+        <div class="feature-item__content">
+          <h3>Прозрачная стоимость</h3>
+          <p>Никаких скрытых платежей. Вы знаете точную цену ещё до начала работы.</p>
+        </div>
       </div>
-      <div class="service-item" data-animate>
-        <div class="service-item__icon">💰</div>
-        <div class="service-item__title">Выгодные тарифы</div>
-        <div class="service-item__desc">Экономия до 30% за счёт оптимизации маршрутов</div>
+      <div class="feature-item" data-animate>
+        <div class="feature-item__icon">📞</div>
+        <div class="feature-item__content">
+          <h3>Работаем 24/7</h3>
+          <p>Диспетчерская служба и поддержка клиентов доступны круглосуточно без выходных.</p>
+        </div>
       </div>
-      <div class="service-item" data-animate>
-        <div class="service-item__icon">🛡️</div>
-        <div class="service-item__title">Полное страхование</div>
-        <div class="service-item__desc">Страхуем грузы на всех этапах транспортировки</div>
-      </div>
-      <div class="service-item" data-animate>
-        <div class="service-item__icon">📍</div>
-        <div class="service-item__title">GPS мониторинг</div>
-        <div class="service-item__desc">Отслеживание транспорта в реальном времени</div>
-      </div>
-      <div class="service-item" data-animate>
-        <div class="service-item__icon">🤝</div>
-        <div class="service-item__title">Личный менеджер</div>
-        <div class="service-item__desc">Персональный менеджер для постоянных клиентов</div>
+      <div class="feature-item" data-animate>
+        <div class="feature-item__icon">📄</div>
+        <div class="feature-item__content">
+          <h3>Юридическая чистота</h3>
+          <p>Все услуги оказываем по договору с гарантиями и полным пакетом документов.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1429,75 +1251,59 @@
 <section class="gallery" id="gallery">
   <div class="container">
     <div class="s-title" data-animate>
-      <h2 class="s-title__heading">Примеры наших работ</h2>
-      <p class="s-title__sub">Реализованные проекты по логистике</p>
+      <h2 class="s-title__heading">Наши работы</h2>
+      <p class="s-title__sub">Портфолио выполненных проектов</p>
     </div>
-    <div class="gallery-grid">
-      <div class="gallery-item" data-animate>
-        <img src="photo_4.jpg" alt="Проект 1">
-        <div class="gallery-item__overlay">
-          <div class="gallery-item__title">Складской комплекс</div>
-        </div>
+    <div class="gallery__grid">
+      <div class="gallery__item" data-animate>
+        <img src="photo_3.jpg" alt="Проект 1">
       </div>
-      <div class="gallery-item" data-animate>
-        <img src="photo_2.jpg" alt="Проект 2">
-        <div class="gallery-item__overlay">
-          <div class="gallery-item__title">Международная доставка</div>
-        </div>
+      <div class="gallery__item" data-animate>
+        <img src="photo_4.jpg" alt="Проект 2">
       </div>
-      <div class="gallery-item" data-animate>
-        <img src="photo_3.jpg" alt="Проект 3">
-        <div class="gallery-item__overlay">
-          <div class="gallery-item__title">Магистральные перевозки</div>
-        </div>
+      <div class="gallery__item" data-animate>
+        <img src="photo_5.jpg" alt="Проект 3">
       </div>
-      <div class="gallery-item" data-animate>
-        <img src="photo_4.jpg" alt="Проект 4">
-        <div class="gallery-item__overlay">
-          <div class="gallery-item__title">Экспресс-доставка</div>
-        </div>
+      <div class="gallery__item" data-animate>
+        <img src="photo_6.jpg" alt="Проект 4">
       </div>
-      <div class="gallery-item" data-animate>
-        <img src="photo_5.jpg" alt="Проект 5">
-        <div class="gallery-item__overlay">
-          <div class="gallery-item__title">Таможенное оформление</div>
-        </div>
+      <div class="gallery__item" data-animate>
+        <img src="photo_7.jpg" alt="Проект 5">
       </div>
-      <div class="gallery-item" data-animate>
+      <div class="gallery__item" data-animate>
         <img src="photo_1.jpg" alt="Проект 6">
-        <div class="gallery-item__overlay">
-          <div class="gallery-item__title">Складская логистика</div>
-        </div>
-      </div>
-      <div class="gallery-item" data-animate>
-        <img src="photo_2.jpg" alt="Проект 7">
-        <div class="gallery-item__overlay">
-          <div class="gallery-item__title">Грузоп обработка</div>
-        </div>
-      </div>
-      <div class="gallery-item" data-animate>
-        <img src="photo_3.jpg" alt="Проект 8">
-        <div class="gallery-item__overlay">
-          <div class="gallery-item__title">Автопарк компании</div>
-        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contacts">
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta__wrapper" data-animate>
+      <div class="cta__content">
+        <h2>ЗАКАЖИТЕ ПЕРЕВОЗКУ<br>ПРЯМО СЕЙЧАС</h2>
+        <p>Оставьте заявку — и мы рассчитаем стоимость за 5 минут. Бесплатный выезд оценщика в Калининград. Страховка, GPS, опытные грузчики — всё включено.</p>
+        <a href="#contacts" class="btn btn--gold">Получить консультацию →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-form" id="contacts">
   <div class="container">
     <div class="s-title" data-animate>
-      <h2 class="s-title__heading">Оставить заявку и получить бесплатный расчёт стоимости</h2>
+      <h2 class="s-title__heading">Свяжитесь с нами</h2>
+      <p class="s-title__sub">Ответим на все вопросы и поможем с выбором услуги</p>
     </div>
     <div class="form-wrapper" data-animate>
       <form class="js-form" data-bot-token="8434584674:AAGvxeQulQDyaESBQeu7rF5siC6HHs2McrE" data-chat-id="549333404">
         <input name="name" placeholder="Ваше имя" required>
-        <input name="company" placeholder="Название компании">
         <input name="phone" placeholder="телефон" required>
-        <textarea name="message" placeholder="Опишите задачу: тип груза, маршрут, объём"></textarea>
-        <button type="submit" class="btn btn--yellow">Отправить заявку</button>
+        <input name="service" placeholder="Интересующая услуга">
+        <textarea name="message" placeholder="Дополнительная информация"></textarea>
+        <button type="submit" class="btn btn--gold">Отправить заявку</button>
       </form>
     </div>
   </div>
@@ -1532,17 +1338,19 @@
       <div>
         <div class="footer__title">Услуги</div>
         <div class="footer__links">
-          <a href="#">Складирование</a>
-          <a href="#">Магистральные перевозки</a>
-          <a href="#">Международные перевозки</a>
+          <a href="#">Городские перевозки</a>
+          <a href="#">Междугородние рейсы</a>
+          <a href="#">Международные доставки</a>
+          <a href="#">Таможенное оформление</a>
         </div>
       </div>
       <div>
         <div class="footer__title">Компания</div>
         <div class="footer__links">
           <a href="#">О нас</a>
-          <a href="#">Проекты</a>
+          <a href="#">Портфолио</a>
           <a href="#">Отзывы</a>
+          <a href="#">Контакты</a>
         </div>
       </div>
       <div>
@@ -1584,16 +1392,26 @@ for (const form of document.querySelectorAll('.js-form')) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const fd = new FormData(form);
-    const msg = ['🚚 Новая заявка с сайта', '', 'Имя: ' + (fd.get('name') || ''), 'Компания: ' + (fd.get('company') || ''), 'Телефон: ' + (fd.get('phone') || ''), 'Сообщение: ' + (fd.get('message') || '')].join('\n');
+    const msg = [
+      '🚚 Новая заявка с сайта',
+      '',
+      'Имя: ' + (fd.get('name') || ''),
+      'Телефон: ' + (fd.get('phone') || ''),
+      'Услуга: ' + (fd.get('service') || ''),
+      'Сообщение: ' + (fd.get('message') || '')
+    ].join('\n');
     try {
       const res = await fetch('https://api.telegram.org/bot' + form.dataset.botToken + '/sendMessage', {
-        method: 'POST', headers: {'Content-Type': 'application/json'},
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ chat_id: 549333404, text: msg })
       });
       if (!res.ok) throw new Error();
       (function(){var _n=document.createElement('div');_n.textContent='Заявка отправлена! Перезвоним в течение 15 минут.';_n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#4caf50;color:#fff;padding:16px 32px;border-radius:8px;z-index:9999;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:fadeInOut 3s forwards';document.body.appendChild(_n);setTimeout(function(){_n.remove()},3500)})();
       form.reset();
-    } catch { (function(){var _n=document.createElement('div');_n.textContent='Не удалось отправить. Позвоните нам напрямую.';_n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#f44336;color:#fff;padding:16px 32px;border-radius:8px;z-index:9999;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:fadeInOut 3s forwards';document.body.appendChild(_n);setTimeout(function(){_n.remove()},4000)})(); }
+    } catch {
+      (function(){var _n=document.createElement('div');_n.textContent='Не удалось отправить. Позвоните нам напрямую.';_n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#f44336;color:#fff;padding:16px 32px;border-radius:8px;z-index:9999;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:fadeInOut 3s forwards';document.body.appendChild(_n);setTimeout(function(){_n.remove()},4000)})();
+    }
   });
 }
 </script>

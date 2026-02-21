@@ -1,14 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap");
 :root{
-  --bg:#080f0d;--bg2:#0f1a16;--mid:#122018;
-  --accent:#5daa8f;--accent2:#a8e6cf;--accent3:#3f8c71;
-  --text:#fff;--ts:rgba(255,255,255,.55);--tm:rgba(255,255,255,.3);
-  --brd:rgba(93,170,143,.1);--brdh:rgba(93,170,143,.3);
-  --surf:rgba(255,255,255,.03);--hbg:rgba(8,15,13,.88);
-  --fh:"Crimson Pro",serif;--fb:"Work Sans",system-ui,sans-serif;
-  --glow:rgba(93,170,143,.12);
-  --grad-angle:170deg;
-  --card-shadow:0 14px 44px rgba(0,0,0,.22);
+  --bg:#faf6f8;--bg2:#f4eef0;--mid:#efe6ea;
+  --accent:#9e5a6a;--accent2:#c48a98;--accent3:#803c4c;
+  --text:#2a1820;--ts:rgba(0,0,0,.55);--tm:rgba(0,0,0,.35);
+  --brd:rgba(158,90,106,.12);--brdh:rgba(158,90,106,.3);
+  --surf:rgba(0,0,0,.02);--hbg:rgba(250,246,248,.92);
+  --fh:"Lora",serif;--fb:"Raleway",system-ui,sans-serif;
+  --glow:rgba(158,90,106,.12);
+  --grad-angle:200deg;
+  --card-shadow:0 12px 40px rgba(0,0,0,.25);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
@@ -318,9 +318,9 @@ small{font-size:12px;color:var(--tm);letter-spacing:.3px}
 /* ═══ PROGRESS BAR ═══ */
 .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:101;transition:width .1s linear;width:0}
 
-body::before{background:linear-gradient(170deg,var(--bg) 0%,var(--mid) 40%,var(--bg) 100%)}
-.card,.adv,.testimonial,.step{box-shadow:0 14px 44px rgba(0,0,0,.22)}
-#particles{opacity:.45}
+body::before{background:linear-gradient(200deg,var(--bg) 0%,var(--mid) 40%,var(--bg) 100%)}
+.card,.adv,.testimonial,.step{box-shadow:0 12px 40px rgba(0,0,0,.25)}
+#particles{opacity:.5}
 
 
 

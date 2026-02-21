@@ -1,0 +1,1467 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Дмитрий — Грузоперевозки в Калининград</title>
+  <meta name="description" content="Профессиональные грузоперевозки от Дмитрий в Калининград. Работаем 24/7.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #0f172a;
+      --bg-light: #1e293b;
+      --text: #e2e8f0;
+      --text-light: #94a3b8;
+      --orange: #ff6b35;
+      --orange-dark: #f45217;
+      --teal: #14b8a6;
+      --border: rgba(148,163,184,0.15);
+      --shadow: 0 10px 40px rgba(0,0,0,0.4);
+      --font: 'Inter', 'Segoe UI', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* === HEADER === */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(15,23,42,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+    .logo__icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .logo__text {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .nav {
+      display: flex;
+      gap: 32px;
+    }
+    .nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav a:hover { color: var(--orange); }
+    .header__cta {
+      padding: 12px 26px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .header__cta:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+
+    /* === HERO === */
+    .hero {
+      padding: 130px 0 100px;
+      background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, transparent 60%),
+                  url('photo_1.jpg') center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(20,184,166,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero__grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 500px;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero__content h1 {
+      font-size: clamp(42px, 5.5vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1.5px;
+    }
+    .hero__content h1 span {
+      color: var(--orange);
+    }
+    .hero__content p {
+      font-size: 17px;
+      color: var(--text-light);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .hero__mockup {
+      position: relative;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .hero__mockup img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn--orange {
+      background: var(--orange);
+      color: #fff;
+    }
+    .btn--orange:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255,107,53,0.3);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+    .btn--outline:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    /* === CHALLENGE === */
+    .challenge {
+      padding: 90px 0;
+      background: var(--bg-light);
+    }
+    .challenge__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .challenge__block h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 900;
+      margin-bottom: 24px;
+      letter-spacing: -0.8px;
+    }
+    .challenge__block h2 span {
+      color: var(--orange);
+    }
+    .challenge__block p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .challenge__block ul {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .challenge__block ul li {
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      padding-left: 28px;
+    }
+    .challenge__block ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    /* === SOLUTION === */
+    .solution {
+      padding: 90px 0;
+      background: var(--bg);
+    }
+    .solution__title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .solution__title h2 {
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 900;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+    .solution__title h2 span {
+      color: var(--orange);
+    }
+    .solution__title p {
+      font-size: 16px;
+      color: var(--text-light);
+    }
+    .solution__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .solution-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px;
+      transition: all 0.3s;
+    }
+    .solution-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .solution-card__icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+    .solution-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .solution-card p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* === PROTOTYPE === */
+    .prototype {
+      padding: 90px 0;
+      background: var(--bg-light);
+    }
+    .prototype__header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .prototype__header h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+    .prototype__header p {
+      font-size: 16px;
+      color: var(--text-light);
+    }
+    .prototype__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    .prototype__item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .prototype__item:hover {
+      border-color: var(--orange);
+      transform: scale(1.02);
+    }
+    .prototype__item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+    .prototype__label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(15,23,42,0.95), transparent);
+      padding: 32px 24px 24px;
+      color: #fff;
+    }
+    .prototype__label h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .prototype__label p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* === PROCESS === */
+    .process {
+      padding: 90px 0;
+      background: var(--bg);
+    }
+    .process__header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .process__header h2 {
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 900;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+    .process__header h2 span {
+      color: var(--orange);
+    }
+    .process__header p {
+      font-size: 16px;
+      color: var(--text-light);
+    }
+    .process-list {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .process-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 30px;
+      margin-bottom: 50px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid var(--border);
+    }
+    .process-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .process-item__number {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .process-item__content h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .process-item__content p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* === CTA === */
+    .cta {
+      padding: 90px 0;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .cta h2 {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 900;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+    .cta p {
+      font-size: 17px;
+      margin-bottom: 32px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+    }
+    .cta .btn {
+      background: #fff;
+      color: var(--orange);
+    }
+    .cta .btn:hover {
+      background: rgba(255,255,255,0.95);
+      transform: translateY(-2px);
+    }
+
+    /* === CONTACT FORM === */
+    .contact-form {
+      padding: 90px 0;
+      background: var(--bg-light);
+    }
+    .form-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 50px;
+      box-shadow: var(--shadow);
+    }
+    .form-wrapper h2 {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      text-align: center;
+      letter-spacing: -0.8px;
+    }
+    .form-wrapper p {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+    .form-wrapper input,
+    .form-wrapper textarea {
+      width: 100%;
+      padding: 16px 20px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-light);
+      color: var(--text);
+      font: inherit;
+      font-size: 14px;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+    }
+    .form-wrapper input::placeholder,
+    .form-wrapper textarea::placeholder {
+      color: var(--text-light);
+      opacity: 0.7;
+    }
+    .form-wrapper input:focus,
+    .form-wrapper textarea:focus {
+      outline: none;
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,107,53,0.15);
+    }
+    .form-wrapper textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-wrapper .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      background: var(--bg);
+      color: var(--text-light);
+      padding: 60px 0 30px;
+      border-top: 1px solid var(--border);
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+    .footer__logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .footer__desc {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .footer__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer__links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s;
+    }
+    .footer__links a:hover {
+      color: var(--orange);
+    }
+    .footer__bottom {
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* === FLOATING / MOBILE === */
+    .sticky-call,
+    .sticky-tg {
+      position: fixed;
+      right: 22px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #fff;
+      font-size: 24px;
+      z-index: 60;
+      transition: transform 0.3s;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+    }
+    .sticky-call {
+      bottom: 90px;
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
+    .sticky-tg {
+      bottom: 26px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    }
+    .sticky-call:hover,
+    .sticky-tg:hover {
+      transform: scale(1.1);
+    }
+
+    .mobile-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 80;
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: rgba(15,23,42,0.98);
+      backdrop-filter: blur(10px);
+      border-top: 2px solid var(--border);
+    }
+    .mobile-cta a {
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 16px;
+      font-size: 14px;
+    }
+    .mobile-cta__call {
+      color: #fff;
+      background: #10b981;
+    }
+    .mobile-cta__lead {
+      color: #fff;
+      background: var(--orange);
+    }
+
+    /* === ANIMATIONS === */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    [data-animate].animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 1024px) {
+      .hero__grid {
+        grid-template-columns: 1fr;
+      }
+      .challenge__grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .solution__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .prototype__grid {
+        grid-template-columns: 1fr;
+      }
+      .footer__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 700px) {
+      .nav {
+        display: none;
+      }
+      .solution__grid {
+        grid-template-columns: 1fr;
+      }
+      .sticky-call,
+      .sticky-tg {
+        display: none;
+      }
+      .mobile-cta {
+        display: grid;
+      }
+      body {
+        padding-bottom: 70px;
+      }
+      .hero {
+        padding: 110px 0 80px;
+      }
+      .form-wrapper {
+        padding: 36px 28px;
+      }
+      .footer__grid {
+        grid-template-columns: 1fr;
+      }
+      .process-item {
+        grid-template-columns: 60px 1fr;
+        gap: 20px;
+      }
+      .process-item__number {
+        font-size: 36px;
+      }
+    }
+  </style>
+<style>
+
+/* ===== CARGO BRAND STRIP ===== */
+.cargo-brand-strip {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #111 0%, #1a1a1a 50%, #111 100%);
+  overflow: hidden;
+  line-height: 1;
+  padding: 0;
+  position: relative;
+  z-index: 99;
+  border-bottom: 3px solid rgba(255,200,0,0.7);
+}
+.cargo-brand-strip__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 0;
+  width: 100%;
+}
+.cargo-brand-strip__text {
+  font-family: 'Montserrat', 'Impact', 'Arial Black', sans-serif;
+  font-size: clamp(52px, 9vw, 140px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  line-height: 0.9;
+  background: linear-gradient(90deg, #ffd000 0%, #fff8e0 40%, #ffd000 60%, #ffaa00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  animation: gruz-shimmer 3s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+@keyframes gruz-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ===== HERO TRUCK OVERLAY ===== */
+.cargo-hero-truck-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.32) saturate(1.2);
+  transition: transform 8s ease-out;
+}
+.cargo-hero-truck-overlay.parallax-active {
+  transform: scale(1.06);
+}
+.hero, .hero-band+.hero, section.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== SCROLL-REVEAL ANIMATIONS ===== */
+[data-animate], [data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-animate].animated, [data-reveal].animated {
+  opacity: 1;
+  transform: none;
+}
+[data-animate-left] {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-animate-left].animated { opacity: 1; transform: none; }
+[data-animate-right] {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-animate-right].animated { opacity: 1; transform: none; }
+[data-animate-scale] {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-animate-scale].animated { opacity: 1; transform: scale(1); }
+
+/* Staggered children */
+[data-animate]:nth-child(2) { transition-delay: 0.1s; }
+[data-animate]:nth-child(3) { transition-delay: 0.2s; }
+[data-animate]:nth-child(4) { transition-delay: 0.3s; }
+[data-animate]:nth-child(5) { transition-delay: 0.4s; }
+
+/* ===== FLOATING TRUCK SVG ===== */
+.truck-float-svg {
+  position: absolute;
+  right: -220px;
+  bottom: 0;
+  width: min(500px, 55vw);
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 1s 0.4s ease, transform 1.2s 0.4s ease;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+.truck-float-svg.animated {
+  opacity: 0.92;
+  transform: translateX(0);
+  right: -40px;
+}
+
+/* ===== PULSE BUTTON ===== */
+.btn-pulse {
+  animation: btn-pulse-anim 2s ease-in-out infinite;
+}
+@keyframes btn-pulse-anim {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,208,0,0.5); }
+  50% { box-shadow: 0 0 0 16px rgba(255,208,0,0); }
+}
+
+/* ===== COUNTER ANIMATION ===== */
+.cargo-stat-num {
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+/* ===== PARTICLES ===== */
+.cargo-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.cargo-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255,208,0,0.6);
+  animation: particle-rise linear infinite;
+}
+@keyframes particle-rise {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  20% { opacity: 1; }
+  80% { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-120vh) scale(0.3); }
+}
+
+/* ===== ROAD LINE ANIMATION ===== */
+.cargo-road {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,208,0,0.8) 0px, rgba(255,208,0,0.8) 40px,
+    transparent 40px, transparent 80px
+  );
+  background-size: 80px 6px;
+  animation: road-move 1.2s linear infinite;
+  z-index: 3;
+}
+@keyframes road-move {
+  from { background-position: 0 0; }
+  to { background-position: -80px 0; }
+}
+
+/* ===== TELEGRAM FORM ===== */
+.cargo-tg-form-section {
+  padding: 70px 0;
+  background: linear-gradient(135deg, #111 0%, #1c1c1c 100%);
+  position: relative;
+  overflow: hidden;
+}
+.cargo-tg-form-section::before {
+  content: '🚚';
+  position: absolute;
+  font-size: 200px;
+  opacity: 0.04;
+  right: -20px;
+  bottom: -30px;
+  pointer-events: none;
+}
+.cargo-tg-form {
+  max-width: 640px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,208,0,0.2);
+  border-radius: 12px;
+  padding: 40px;
+  backdrop-filter: blur(8px);
+}
+.cargo-tg-form__title {
+  font-family: 'Montserrat', 'Impact', 'Arial Black', sans-serif;
+  font-size: 36px;
+  letter-spacing: 2px;
+  color: #ffd000;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.cargo-tg-form__sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  margin-bottom: 28px;
+}
+.cargo-tg-form input,
+.cargo-tg-form select,
+.cargo-tg-form textarea {
+  display: block;
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,208,0,0.25);
+  color: #fff;
+  padding: 13px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  border-radius: 6px;
+  outline: none;
+  margin-bottom: 12px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.cargo-tg-form input:focus,
+.cargo-tg-form textarea:focus {
+  border-color: #ffd000;
+  background: rgba(255,208,0,0.07);
+}
+.cargo-tg-form input::placeholder,
+.cargo-tg-form textarea::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+.cargo-tg-form textarea { height: 90px; resize: vertical; }
+.cargo-tg-form__btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #ffd000, #ffaa00);
+  color: #111;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  animation: btn-pulse-anim 2s ease-in-out infinite;
+  margin-top: 6px;
+  font-family: 'Montserrat', 'Impact', 'Arial Black', sans-serif;
+}
+.cargo-tg-form__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255,208,0,0.4);
+}
+.cargo-tg-form__success {
+  display: none;
+  text-align: center;
+  padding: 30px;
+  color: #4caf50;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="#top" class="logo">
+      <div class="logo__icon">AZ</div>
+      <div class="logo__text">Дмитрий</div>
+    </a>
+    <nav class="nav">
+      <a href="#challenge">Задачи</a>
+      <a href="#solution">Решение</a>
+      <a href="#process">Процесс</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a href="#contacts" class="header__cta">Оставить заявку</a>
+  </div>
+</header>
+
+<!-- CARGO BRAND STRIP -->
+<div class="cargo-brand-strip">
+  <div class="cargo-brand-strip__inner">
+    <span class="cargo-brand-strip__text">ГРУЗОПЕРЕВОЗКИ</span>
+  </div>
+</div>
+<!-- HERO -->
+<section class="hero" id="top">
+<div class="cargo-hero-truck-overlay" style="background-image:url('photo_1.jpg')" aria-hidden="true"></div>
+<div class="cargo-particles"></div>
+<div class="cargo-road"></div>
+
+
+
+  <div class="container">
+    <div class="hero__grid">
+      <div class="hero__content" data-animate>
+        <h1>Разработаем <span>логистическое решение</span> для вашего бизнеса</h1>
+        <p>Проанализируем потоки, автоматизируем процессы, внедрим современную систему управления доставками. От проектирования до запуска.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="#contacts" class="btn btn--orange">Оставить заявку →</a>
+          <a href="#challenge" class="btn btn--outline">Подробнее</a>
+        </div>
+      </div>
+      <div class="hero__mockup" data-animate>
+        <img src="photo_2.jpg" alt="Платформа логистики">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGE -->
+<section class="challenge" id="challenge">
+  <div class="container">
+    <div class="challenge__grid">
+      <div class="challenge__block" data-animate>
+        <h2><span>Задача:</span><br>Организовать логистику</h2>
+        <p>Ваш бизнес растёт, клиентов становится больше, но процессы доставки и складского учёта остаются chaos: задержки, ошибки, потери.</p>
+        <p>Вы понимаете, что нужна современная система, которая:</p>
+        <ul>
+          <li>Автоматизирует диспетчирование и распределение грузов</li>
+          <li>Отслеживает транспорт в реальном времени</li>
+          <li>Снизит издержки на 30-40%</li>
+          <li>Ускорит обработку заявок и доставку</li>
+          <li>Интегрируется с складом и CRM</li>
+        </ul>
+      </div>
+      <div class="challenge__block" data-animate>
+        <h2><span>95%</span> компаний<br>теряют прибыль</h2>
+        <p>В результатах неэффективной логистики:</p>
+        <ul>
+          <li>Простои транспорта – до 20% времени</li>
+          <li>Ошибки маршрутизации – +25% расходов на топливо</li>
+          <li>Ручной учёт – задержки до 2 дней</li>
+          <li>Отсутствие аналитики – нет точек роста</li>
+          <li>Недовольство клиентов – потеря лояльности</li>
+        </ul>
+        <p>Мы помогаем избежать всех этих проблем.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution" id="solution">
+  <div class="container">
+    <div class="solution__title" data-animate>
+      <h2><span>Решение:</span> Логистическая платформа под ключ</h2>
+      <p>Проектируем, внедряем, обучаем</p>
+    </div>
+    <div class="solution__grid">
+      <div class="solution-card" data-animate>
+        <div class="solution-card__icon">📊</div>
+        <h3>Анализ процессов</h3>
+        <p>Изучаем текущие потоки, находим узкие места, формируем техническое задание на автоматизацию.</p>
+      </div>
+      <div class="solution-card" data-animate>
+        <div class="solution-card__icon">🎨</div>
+        <h3>Дизайн системы</h3>
+        <p>Разрабатываем интерфейс диспетчерской, водителя, клиента. Удобный, понятный, быстрый.</p>
+      </div>
+      <div class="solution-card" data-animate>
+        <div class="solution-card__icon">⚙️</div>
+        <h3>Разработка платформы</h3>
+        <p>Создание веб и мобильных приложений. GPS-мониторинг, автодиспетчеризация, интеграции.</p>
+      </div>
+      <div class="solution-card" data-animate>
+        <div class="solution-card__icon">🔗</div>
+        <h3>Интеграции</h3>
+        <p>Подключаем CRM, склад, бухгалтерию, телематику. Все данные синхронизируются автоматически.</p>
+      </div>
+      <div class="solution-card" data-animate>
+        <div class="solution-card__icon">📈</div>
+        <h3>Аналитика и отчёты</h3>
+        <p>Дашборды, KPI водителей, анализ маршрутов. Вы видите реальную картину логистики в режиме реального времени.</p>
+      </div>
+      <div class="solution-card" data-animate>
+        <div class="solution-card__icon">🎓</div>
+        <h3>Обучение команды</h3>
+        <p>Проводим обучение для диспетчеров, водителей, администраторов. Полная документация и поддержка.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOTYPE -->
+<section class="prototype">
+  <div class="container">
+    <div class="prototype__header" data-animate>
+      <h2>Прототип</h2>
+      <p>Примеры интерфейсов логистической платформы</p>
+    </div>
+    <div class="prototype__grid">
+      <div class="prototype__item" data-animate>
+        <img src="photo_3.jpg" alt="Панель диспетчера">
+        <div class="prototype__label">
+          <h3>Панель диспетчера</h3>
+          <p>Управление заказами и транспортом</p>
+        </div>
+      </div>
+      <div class="prototype__item" data-animate>
+        <img src="photo_4.jpg" alt="Мобильное приложение">
+        <div class="prototype__label">
+          <h3>Мобильное приложение</h3>
+          <p>Для водителей и курьеров</p>
+        </div>
+      </div>
+      <div class="prototype__item" data-animate>
+        <img src="photo_5.jpg" alt="Отслеживание грузов">
+        <div class="prototype__label">
+          <h3>Отслеживание в реальном времени</h3>
+          <p>GPS-мониторинг всех транспортных средств</p>
+        </div>
+      </div>
+      <div class="prototype__item" data-animate>
+        <img src="photo_6.jpg" alt="Аналитика">
+        <div class="prototype__label">
+          <h3>Аналитика и отчёты</h3>
+          <p>KPI, маршруты, эффективность</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="process__header" data-animate>
+      <h2>Процесс <span>разработки</span></h2>
+      <p>Шаг за шагом к вашей логистической системе</p>
+    </div>
+    <div class="process-list">
+      <div class="process-item" data-animate>
+        <div class="process-item__number">01</div>
+        <div class="process-item__content">
+          <h3>Аудит и анализ</h3>
+          <p>Изучаем текущие процессы, объёмы, маршруты. Фиксируем боли и точки роста. Формируем требования.</p>
+        </div>
+      </div>
+      <div class="process-item" data-animate>
+        <div class="process-item__number">02</div>
+        <div class="process-item__content">
+          <h3>Прототипирование</h3>
+          <p>Создаём макеты интерфейсов: диспетчер, водитель, клиент. Согласуем логику и структуру системы.</p>
+        </div>
+      </div>
+      <div class="process-item" data-animate>
+        <div class="process-item__number">03</div>
+        <div class="process-item__content">
+          <h3>Дизайн</h3>
+          <p>Разрабатываем UI/UX дизайн. Создаём удобные, понятные интерфейсы для быстрой работы.</p>
+        </div>
+      </div>
+      <div class="process-item" data-animate>
+        <div class="process-item__number">04</div>
+        <div class="process-item__content">
+          <h3>Разработка</h3>
+          <p>Программируем веб-платформу и мобильные приложения. Настраиваем GPS, маршрутизацию, интеграции.</p>
+        </div>
+      </div>
+      <div class="process-item" data-animate>
+        <div class="process-item__number">05</div>
+        <div class="process-item__content">
+          <h3>Тестирование</h3>
+          <p>Проверяем все сценарии работы. Отлаживаем баги. Оптимизируем производительность.</p>
+        </div>
+      </div>
+      <div class="process-item" data-animate>
+        <div class="process-item__number">06</div>
+        <div class="process-item__content">
+          <h3>Запуск и обучение</h3>
+          <p>Проводим обучение команды, запускаем систему. Сопровождаем первые недели работы.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <div class="cta__content" data-animate>
+      <h2>ЗАКАЖИТЕ ПЕРЕВОЗКУ<br>ПРЯМО СЕЙЧАС</h2>
+      <p>Оставьте заявку — и мы рассчитаем стоимость за 5 минут. Бесплатный выезд оценщика в Калининград. Страховка, GPS, опытные грузчики — всё включено.</p>
+      <a href="#contacts" class="btn">Оставить заявку →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-form" id="contacts">
+  <div class="container">
+    <div class="form-wrapper" data-animate>
+      <h2>Свяжитесь с нами</h2>
+      <p>Ответим в течение 15 минут</p>
+      <form class="js-form" data-bot-token="8434584674:AAGvxeQulQDyaESBQeu7rF5siC6HHs2McrE" data-chat-id="549333404">
+        <input name="name" placeholder="Ваше имя" required>
+        <input name="phone" placeholder="телефон" required>
+        <input name="company" placeholder="Компания">
+        <textarea name="message" placeholder="Расскажите о задаче"></textarea>
+        <button type="submit" class="btn btn--orange">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<!-- ===== TELEGRAM FORM (без PHP, для GitHub Pages) ===== -->
+<section class="cargo-tg-form-section" id="cargo-zayavka">
+  <div class="container" style="max-width:1200px;margin:0 auto;padding:0 24px;">
+    <form class="cargo-tg-form" data-bot-token="8434584674:AAGvxeQulQDyaESBQeu7rF5siC6HHs2McrE" data-chat-id="549333404" autocomplete="off">
+      <div class="cargo-tg-form__title">ОСТАВИТЬ ЗАЯВКУ</div>
+      <div class="cargo-tg-form__sub">Ответим в течение 15 минут · Бесплатный выезд на замер</div>
+      <input name="name" type="text" placeholder="Ваше имя" required>
+      <input name="phone" type="tel" placeholder="+7 (___) ___-__-__" required>
+      <input name="cargo" type="text" placeholder="Что перевозите? (груз, объём)">
+      <input name="route" type="text" placeholder="Маршрут (откуда — куда)">
+      <textarea name="message" placeholder="Дополнительные пожелания..."></textarea>
+      <button type="submit" class="cargo-tg-form__btn">📲 ОТПРАВИТЬ В TELEGRAM</button>
+      <div class="cargo-tg-form__success">✅ Заявка отправлена! Ожидайте звонка.</div>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">Дмитрий</div>
+        <div class="footer__desc">Профессиональные грузоперевозки в Калининград. Работаем с 2015 года.</div>
+      </div>
+      <div>
+        <div class="footer__title">Услуги</div>
+        <div class="footer__links">
+          <a href="#">Аудит логистики</a>
+          <a href="#">Разработка ПО</a>
+          <a href="#">Интеграции</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Компания</div>
+        <div class="footer__links">
+          <a href="#">О нас</a>
+          <a href="#">Кейсы</a>
+          <a href="#">Контакты</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Контакты</div>
+        <div class="footer__links">
+          <a href="tel:+79000000000">+7 (900) 000-00-00</a>
+          <a href="mailto:info@info.ru">info@info.ru</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      © 2026 Дмитрий. Все права защищены.
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING -->
+<a class="sticky-call" href="tel:+79000000000">📞</a>
+<a class="sticky-tg" href="https://t.me/+79000000000">✈️</a>
+<div class="mobile-cta">
+  <a class="mobile-cta__call" href="tel:+79000000000">Позвонить</a>
+  <a class="mobile-cta__lead" href="#contacts">Оставить заявку</a>
+</div>
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animated');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -35px 0px' });
+document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+// Telegram form
+for (const form of document.querySelectorAll('.js-form')) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const msg = [
+      '🚚 Новая заявка с сайта',
+      '',
+      'Имя: ' + (fd.get('name') || ''),
+      'Телефон: ' + (fd.get('phone') || ''),
+      'Компания: ' + (fd.get('company') || ''),
+      'Сообщение: ' + (fd.get('message') || '')
+    ].join('\n');
+    try {
+      const res = await fetch('https://api.telegram.org/bot' + form.dataset.botToken + '/sendMessage', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ chat_id: 549333404, text: msg })
+      });
+      if (!res.ok) throw new Error();
+      alert('Заявка отправлена! Перезвоним в течение 15 минут.');
+      form.reset();
+    } catch {
+      alert('Не удалось отправить. Позвоните нам напрямую.');
+    }
+  });
+}
+</script>
+
+<script>
+(function(){
+  // ===== SCROLL REVEAL =====
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('[data-animate],[data-reveal],[data-animate-left],[data-animate-right],[data-animate-scale]')
+    .forEach(el => revealObs.observe(el));
+
+  // ===== PARALLAX TRUCK =====
+  const truckOverlay = document.querySelector('.cargo-hero-truck-overlay');
+  if (truckOverlay) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      truckOverlay.style.transform = 'scale(1.06) translateY(' + (scrolled * 0.15) + 'px)';
+    }, {passive: true});
+    setTimeout(() => truckOverlay.classList.add('parallax-active'), 300);
+  }
+
+  // ===== ANIMATED COUNTERS =====
+  function animCounter(el, target, duration) {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { start = target; clearInterval(timer); }
+      el.textContent = Math.round(start).toLocaleString('ru') + (el.dataset.suffix || '');
+    }, 16);
+  }
+  const cntObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        if (!el.dataset.counted) {
+          el.dataset.counted = '1';
+          animCounter(el, parseInt(el.dataset.target, 10), 1400);
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => cntObs.observe(el));
+
+  // ===== PARTICLES =====
+  const particleContainers = document.querySelectorAll('.cargo-particles');
+  particleContainers.forEach(container => {
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('span');
+      p.className = 'cargo-particle';
+      p.style.cssText = [
+        'left:' + (Math.random()*100) + '%',
+        'bottom:' + (Math.random()*30) + 'px',
+        'width:' + (2 + Math.random()*4) + 'px',
+        'height:' + (2 + Math.random()*4) + 'px',
+        'animation-duration:' + (4 + Math.random()*8) + 's',
+        'animation-delay:' + (Math.random()*6) + 's',
+        'opacity:' + (0.3 + Math.random()*0.5)
+      ].join(';');
+      container.appendChild(p);
+    }
+  });
+
+  // ===== TELEGRAM FORM =====
+  document.querySelectorAll('.cargo-tg-form[data-bot-token]').forEach(form => {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.cargo-tg-form__btn');
+      const success = form.querySelector('.cargo-tg-form__success');
+      const fields = form.querySelectorAll('input,textarea,select');
+      btn.disabled = true;
+      btn.textContent = 'ОТПРАВЛЯЕМ...';
+      const lines = ['\uD83D\uDE9A Новая заявка с сайта ГРУЗОПЕРЕВОЗКИ', ''];
+      fields.forEach(f => {
+        if (f.name && f.value) {
+          const labels = {name:'Имя',phone:'Телефон',cargo:'Груз',route:'Маршрут',date:'Дата',message:'Сообщение',weight:'Вес'};
+          lines.push((labels[f.name] || f.name) + ': ' + f.value);
+        }
+      });
+      lines.push('', '\uD83D\uDCCD Сайт: ' + window.location.hostname);
+      try {
+        const res = await fetch('https://api.telegram.org/bot' + form.dataset.botToken + '/sendMessage', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({chat_id: 549333404, text: lines.join('\n'), parse_mode: 'HTML'})
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        if (success) { success.style.display = 'block'; }
+        fields.forEach(f => { if (f.tagName !== 'SELECT') f.value = ''; });
+        btn.textContent = '✅ ОТПРАВЛЕНО!';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = 'ОТПРАВИТЬ ЗАЯВКУ';
+          if (success) success.style.display = 'none';
+        }, 4000);
+      } catch(err) {
+        btn.disabled = false;
+        btn.textContent = 'ОТПРАВИТЬ ЗАЯВКУ';
+        alert('Ошибка отправки. Позвоните нам напрямую.');
+      }
+    });
+  });
+
+  // ===== OLD FORM SUPPORT (если есть .js-form) =====
+  document.querySelectorAll('.js-form').forEach(form => {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const token = form.dataset.botToken || '8434584674:AAGvxeQulQDyaESBQeu7rF5siC6HHs2McrE';
+      const chatId = form.dataset.chatId || '549333404';
+      const msg = ['\uD83D\uDE9A Заявка с сайта ГРУЗОПЕРЕВОЗКИ','',
+        '\uD83D\uDC64 Имя: ' + (fd.get('name')||''),
+        '\uD83D\uDCF1 Телефон: ' + (fd.get('phone')||''),
+        '\uD83D\uDCE6 Груз: ' + (fd.get('cargo')||''),
+        '\uD83D\uDCDD Сообщение: ' + (fd.get('message')||''),
+        '\uD83C\uDF10 Сайт: ' + window.location.hostname
+      ].join('\n');
+      try {
+        const res = await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({chat_id: 549333404, text: msg})
+        });
+        if (!res.ok) throw new Error();
+        alert('\u2705 Заявка отправлена! Перезвоним в течение 15 минут.');
+        form.reset();
+      } catch {
+        alert('Ошибка отправки. Позвоните нам напрямую.');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,2 +1,0 @@
-# dmitriy-site
-Landing page — auto-deployed
